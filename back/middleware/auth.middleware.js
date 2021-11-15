@@ -1,3 +1,9 @@
+/**
+ * Middleware for Users
+ * @author Hugo Vialle
+ * @date 11/11/2021
+ */
+
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user.model');
 

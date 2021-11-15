@@ -3,7 +3,9 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config({path: './config/.env'});
 require('./config/db');
 const app = express();
+const port = process.env.PORT || 8000
 const cors = require('cors');
+const userRoutes = require('./routes/user.routes');
 const bodyParser = require('body-parser');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
@@ -25,8 +27,11 @@ app.use(cookieParser())
 // JsonWebToken
 app.get('*', checkUser);
 app.get('/jwtid', requireAuth, (req, res) => {
-    res.status(200).send(res.locals.user._id)
+    res.status(200).send(res.locals.user._id);
 });
+
+//routes
+app.use('/api', userRoutes);
 
 // server
 app.listen(port, () => {

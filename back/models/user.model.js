@@ -1,3 +1,9 @@
+/**
+ * Model for Users
+ * @author Hugo Vialle
+ * @date 11/11/2021
+ */
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 

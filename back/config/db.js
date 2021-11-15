@@ -1,13 +1,15 @@
-
+/**
+ * Connection to Mongo Database
+ * @author Hugo Vialle
+ * @date 11/11/2021
+ */
 const mongoose = require("mongoose")
 
 mongoose
-    .connect(`${process.env.RESTREVIEWS_DB_URI}`,
+    .connect(`${process.env.MONGO_DB_URI}`,
         {
             useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false,
+            useUnifiedTopology: true
         }
     )
     .then( () => console.log("Connected to MongoDB"))
