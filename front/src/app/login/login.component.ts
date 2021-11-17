@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {UsersService} from "../users.service";
+import {UsersService} from "../services/users.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public usersService: UsersService) {
+  constructor(public usersService: UsersService,
+              private ngZone: NgZone,
+              private router: Router) {
     this.email = "";
     this.password = "";
   }
@@ -25,6 +28,11 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     }
-    this.usersService.logIn(user).subscribe();
+    this.usersService.logIn(user).subscribe(
+      () => {
+        this.ngZone.run(() => this.router.navigateByUrl('/'))
+      }, (error: any) => {
+        console.log(error);
+      });
   }
 }

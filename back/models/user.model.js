@@ -9,11 +9,11 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema(
     {
-        pseudo: String,
-        password: String,
-        firstName: String,
-        lastName: String,
-        email: String,
+        pseudo: {type: String, unique: true, required: true},
+        password: {type: String, required: true},
+        firstName: {type: String, required: true},
+        lastName: {type: String, required: true},
+        email: {type: String, unique: true, required: true},
     }
 );
 
@@ -34,7 +34,7 @@ userSchema.pre("save", async function(next) {
  * @return the user
  */
 userSchema.statics.login = async function(pseudo, email, password) {
-    const user = await this.findOne({ pseudo }) || this.findOne({ email });
+    const user = await this.findOne({ pseudo });
     if (user) {
         const auth = await bcrypt.compare(password, user.password);
         if (auth) {
