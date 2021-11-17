@@ -1,5 +1,16 @@
-<form>
-  <input name="email" type="text" [(ngModel)]="email" placeholder="Email or username"/>
-  <input name="password" type="password" [(ngModel)]="password" placeholder="Password"/>
-  <button (click)="handleLogIn()">Log In</button>
-</form>
+<div class="container">
+  <form class="loginForm">
+    <div class="formBox">
+      <h1>Connectez vous à SPORT<b>BUDDY</b></h1>
+      <div class="inputBox">
+        <input name="email" type="text" [(ngModel)]="email"required/>
+        <span>Email</span>
+      </div>
+      <div class="inputBox">
+        <input name="password" type="password" [(ngModel)]="password" required/>
+        <span>Mot de passe</span>
+      </div>
+      <button (click)="handleLogIn()">Se connecter</button>
+    </div>
+  </form>
+</div>

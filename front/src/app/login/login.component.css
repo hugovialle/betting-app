@@ -1,0 +1,71 @@
+.container {
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-image: radial-gradient(58.82% 150.58% at 100% 0%, rgba(129, 129, 129, 0) 0%, rgba(66, 66, 66, 0.6) 40.62%, rgba(19, 19, 19, 0.7) 57.29%, rgba(16, 16, 16, 0.9) 78.65%, #000000 100%), url('../../assets/images/ground.jpeg');
+  background-position: center;
+  background-size: cover;
+  padding: 0 10%;
+  color: #FFF;
+}
+
+form {
+  width: 35%;
+}
+
+.formBox {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 16px;
+}
+
+.formBox h1 {
+  margin-bottom: 32px;
+  font-weight: normal;
+}
+
+.inputBox {
+  position: relative;
+  margin-bottom: 33px;
+}
+
+.inputBox input {
+  padding: 5px 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px solid #61d2ff;
+  color: #FFF;
+  width: 100%;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  pointer-events: none;
+  font-size: 18px;
+  color: #FFF;
+  transition: 0.3s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+  transform: translateY(-25px);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgb(170, 170, 170);
+}
+
+.formBox button {
+  background-color: #61d2ff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 0;
+  font-weight: bold;
+}
