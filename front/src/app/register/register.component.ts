@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {UsersService} from "../users.service";
+import { Component, OnInit, NgZone } from '@angular/core';
+import {UsersService} from "../services/users.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,9 @@ export class RegisterComponent implements OnInit {
   lastName: string;
   password: string;
 
-  constructor(public usersService: UsersService) {
+  constructor(public usersService: UsersService,
+              private ngZone: NgZone,
+              private router: Router) {
     this.pseudo = "";
     this.email = "";
     this.firstName = "";
@@ -33,6 +36,11 @@ export class RegisterComponent implements OnInit {
       lastName: this.lastName,
       password: this.password
     }
-    this.usersService.register(user).subscribe();
+    this.usersService.register(user).subscribe(
+      () => {
+        this.ngZone.run(() => this.router.navigateByUrl('/'))
+      }, (error: any) => {
+        console.log(error);
+      });
   }
 }

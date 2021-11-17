@@ -10,23 +10,20 @@ module.exports.signInErrors = (err) => {
     if (err.message.includes("pseudo"))
         errors.pseudo = "Le pseudo est inconnu";
 
-    if (err.message.includes('password'))
+    if (err.message.includes("password"))
         errors.password = "Le mot de passe ne correspond pas"
 
     return errors;
 }
 
-module.exports.addSlotErrors = (err) => {
-    let errors = { date: '', time: ''}
+module.exports.addEventErrors = (err) => {
+    let errors = { date: '', duplicate: ''}
 
     if (err.message.includes("date"))
-        errors.email = "La date est invalide";
-
-    if (err.message.includes('time'))
-        errors.password = "Aucune horaire n'est sélectionnée"
+        errors.date = "La date est invalide";
 
     if (err.message.includes('duplicate'))
-        errors.password = "Le créneau existe déjà"
+        errors.duplicate = "L'event existe déjà"
 
     return errors;
 }

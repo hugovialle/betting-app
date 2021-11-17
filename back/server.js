@@ -5,7 +5,11 @@ require('./config/db');
 const app = express();
 const port = process.env.PORT || 8000
 const cors = require('cors');
+// Routes imports
 const userRoutes = require('./routes/user.routes');
+const eventRoutes = require('./routes/event.routes');
+const locationRoutes = require('./routes/location.routes');
+
 const bodyParser = require('body-parser');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
@@ -31,7 +35,9 @@ app.get('/jwtid', requireAuth, (req, res) => {
 });
 
 //routes
-app.use('/api', userRoutes);
+app.use('/user', userRoutes);
+app.use('/events', eventRoutes);
+app.use('/locations', locationRoutes);
 
 // server
 app.listen(port, () => {
