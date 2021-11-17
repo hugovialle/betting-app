@@ -17,10 +17,6 @@
   font-size: 18px;
 }
 
-.top img {
-  border-radius: 50%;
-  height: 40px;
-}
 
 .infos, .date {
   display: flex;
@@ -35,9 +31,9 @@
 }
 
 .top {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .button {
@@ -48,4 +44,12 @@
   text-align: center;
   width: 50%;
   margin: 0 auto;
+  outline: none;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  &:hover {
+    background: white;
+    outline: 2px solid #61d2ff;
+    outline-offset: -2px;
+    color:#61d2ff;
+  }
 }
