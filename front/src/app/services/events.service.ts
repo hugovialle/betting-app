@@ -14,7 +14,7 @@ export class EventsService {
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
   addEvent(eventCard: any):any{
-    return this.http.post("http://localhost:3000/api/events",eventCard);
+    return this.http.post("http://localhost:3000/api/events/add",eventCard);
   }
 
   deleteNote(eventId:any):Observable<any> {

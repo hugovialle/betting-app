@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="infos" style="text-align: center;">
-      <span>Match de Football</span>
-      <span>Stade Winmille</span>
+      <span>{{event.sport}}</span>
+      <span>{{event.title}}</span>
     </div>
     <div class="event_buttons">
       <div class="button">Voir plus</div>
@@ -20,15 +20,15 @@
 <div class="event-card" *ngIf="router == '/events'">
   <div class="content">
     <div class="top">
-      <fa-icon [icon]="runningIcon" size="2x" [styles]="{'color': 'black'}"></fa-icon>
+      <fa-icon [icon]="ball(this.event.sport)" size="2x" [styles]="{'color': 'black'}"></fa-icon>
       <div class="date">
         <span>27 Aug</span>
         <span>13:30</span>
       </div>
     </div>
     <div class="infos">
-      <span>Match de Football</span>
-      <span>Stade Winmille</span>
+      <span>{{event.sport}}</span>
+      <span>{{event.title}}</span>
     </div>
     <div class="event_buttons">
       <div class="button">Voir plus</div>
@@ -36,8 +36,8 @@
     </div>
   </div>
   <div class="map">
-    <div class="map-container">
-      <app-map></app-map>
+    <div class="map-container" id="{{this.event._id}}">
+      <app-map [event]="this.event"></app-map>
     </div>
   </div>
 </div>

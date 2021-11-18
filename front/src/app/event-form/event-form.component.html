@@ -1,18 +1,21 @@
 <form class="event-form" action="">
   <div class="form-field">
     <h3>Choisissez votre sport</h3>
-    <app-sport-radio-buttons></app-sport-radio-buttons>
+    <app-sport-radio-buttons (newSportValue)="changeSport($event)"></app-sport-radio-buttons>
   </div>
   <div class="form-field">
     <h3>Donner un titre à votre événement</h3>
     <div class="inputBox">
-      <input name="email" type="text" required />
+      <input name="title" type="text" (input)="updateTitle($event)" required />
       <span>Ex. Match de foot à 11</span>
     </div>
   </div>
   <div class="form-field">
     <h3>Choisissez le lieu</h3>
-    <app-map></app-map>
+    <h5>Vous avez choisi: {{this.locationName}}</h5>
+    <div class="map-container" id="new-event">
+      <app-map [event]="this.event" [locations]="this.locations" (selectedLocation)="handleSelectedLocation($event)"></app-map>
+    </div>
   </div>
   <div class="form-field">
     <h3>Choisissez le nombre de personnes 19</h3>
@@ -22,6 +25,6 @@
     </div>
   </div>
   <div class="inputBox">
-    <input type="submit" value="C'est parti">
+    <button (click)="addEvent()">C'est parti!</button>
   </div>
 </form>

@@ -4,7 +4,7 @@ export class EventCard {
   title!: string;
   sport!: string;
   peopleCount!: number;
-  place_id!: number | string;
-  creator_id!: number | string;
-  participants_id!: number | string;
+  place_id!: string;
+  creator_id!: string;
+  participants_id!: string[];
 }

@@ -1,21 +1,6 @@
-<div class="sport-radio">
-  <label for="basketball">
-    <input type="radio" name="rating" class="basketball" id="basketball" value="basketball" />
-    <fa-icon [icon]="basketballIcon" size="2x"></fa-icon>
-  </label>
-
-  <label for="tennis">
-    <input type="radio" name="rating" class="tennis" id="tennis" value="tennis" />
-    <fa-icon [icon]="tennisIcon" size="2x"></fa-icon>
-  </label>
-
-  <label for="football">
-    <input type="radio" name="rating" class="football" id="football" value="football" checked />
-    <fa-icon [icon]="footballIcon" size="2x"></fa-icon>
-  </label>
-
-  <label for="sad1">
-    <input type="radio" name="rating" class="sad" id="sad1" value="sad1" />
-    <fa-icon [icon]="runningIcon" size="2x"></fa-icon>
+<div class="sport-radio" *ngFor="let sport of sports">
+  <label [for]="sport.lowCase">
+    <input type="radio" name="rating" (change)="handleChange($event)" [class]="sport.lowCase" [id]="sport.lowCase" [value]="sport.value" />
+    <fa-icon [icon]="sport.icon" size="2x"></fa-icon>
   </label>
 </div>

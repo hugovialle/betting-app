@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Liste des événements disponibles</h1>
   <div class="events">
-    <app-event-card></app-event-card>
+    <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
   </div>
 </div>

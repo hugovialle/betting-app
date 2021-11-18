@@ -34,9 +34,10 @@ module.exports.getAllEvents = async (req, res) => {
 
 module.exports.addEvent = async (req, res) => {
     const {date, title, sport, peopleCount, place_id, creator_id, participants_id} = req.body
-
+    const dateX = new Date();
+    const x = "619576cbcd35a76c1e629988";
     try{
-        const event = await EventModel.create({date, title, sport, peopleCount, place_id, creator_id, participants_id});
+        const event = await EventModel.create({date: dateX, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, place_id: req.body.place_id, creator_id: x, participants_id: []});
         res.status(200).json({event: event._id});
     }
     catch(err) {
