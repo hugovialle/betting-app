@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { faBaseballBall, faBasketballBall, faFutbol, faRunning } from '@fortawesome/free-solid-svg-icons';
 import {EventCard} from "../models/event-card";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import { EventsService } from "../services/events.service";
 
 @Component({
@@ -21,7 +21,7 @@ export class EventCardComponent implements OnInit {
   @Input() event! : EventCard;
   router: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private eventsService: EventsService, private _router: Router) { 
+  constructor(private route: ActivatedRoute, private eventsService: EventsService, private _router: Router) {
     this.router = _router.url;
   }
 

@@ -1,7 +1,7 @@
 <nav>
   <a routerLink="/" routerLinkActive="active-link" class="logo">SPORT<b>BUDDY</b></a>
   <a routerLink="/events" routerLinkActive="active-link" class="cat">Evenements</a>
-  <a *ngIf="authService.connectedUser" routerLink="/profile" routerLinkActive="active-link" class="cat">Profile</a>
+  <a *ngIf="authService.connectedUser" routerLink="/profile" routerLinkActive="active-link" class="cat">Profil</a>
   <a *ngIf="!authService.connectedUser" routerLink="/login" routerLinkActive="active-link" class="cat">Se connecter</a>
   <a *ngIf="!authService.connectedUser" routerLink="/register" routerLinkActive="active-link" class="cat">S'inscrire</a>
   <button *ngIf="authService.connectedUser" (click)="handleLogOut()">Log out</button>
