@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from "../services/events.service";
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  events: any;
+
+  constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
+    this.getUserEvents();
   }
 
+  getUserEvents(){
+    this.eventsService.getEvents().subscribe(
+      (events:any) =>{
+        this.events = events;
+        console.log(events);
+      },
+      ()=>{
+        console.log("ErrorX");
+      }
+    )
+  }
 }
