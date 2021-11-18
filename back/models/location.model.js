@@ -14,7 +14,7 @@ const locationSchema = new mongoose.Schema(
             actlib: String,
             insnovoie: String,
             inslibellevoie: String,
-            inscodepostal: Number,
+            inscodepostal: String,
             equgpsx: Number,
             equgpsy: Number
         },

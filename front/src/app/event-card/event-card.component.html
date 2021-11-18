@@ -1,7 +1,7 @@
 <div class="event-card" *ngIf="router == '/profile'">
   <div class="content">
     <div class="top">
-      <fa-icon [icon]="runningIcon" size="2x" [styles]="{'color': 'black'}"></fa-icon>
+      <fa-icon [icon]="ball(this.event.sport)" size="2x" [styles]="{'color': 'black'}"></fa-icon>
       <div class="date">
         <span>27 Aug</span>
         <span>13:30</span>

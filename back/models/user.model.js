@@ -20,11 +20,11 @@ const userSchema = new mongoose.Schema(
 /**
  * Encrypt the password of the user
  */
-userSchema.pre("save", async function(next) {
+/*userSchema.pre("save", async function(next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
     next();
-});
+});*/
 
 /**
  * Verify that the user exists and that the given password is correct
@@ -34,7 +34,7 @@ userSchema.pre("save", async function(next) {
  * @return the user
  */
 userSchema.statics.login = async function(pseudo, email, password) {
-    const user = await this.findOne({ pseudo });
+    const user = await this.findOne({ pseudo: pseudo });
     if (user) {
         const auth = await bcrypt.compare(password, user.password);
         if (auth) {

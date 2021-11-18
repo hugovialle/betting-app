@@ -9,7 +9,8 @@ const authController = require('../controllers/auth.controller');
 const locationController = require('../controllers/location.controller');
 
 router.post("/login", authController.signIn);
-router.post("/logout", authController.logout);
+router.get("/logout", authController.logout);
 router.post("/register", authController.addUser);
+router.get("/islogged", authController.isLogged);
 
 module.exports = router;

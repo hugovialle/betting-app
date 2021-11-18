@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import {UsersService} from "../services/users.service";
+import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,21 +9,13 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
 
-  pseudo: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
+  pseudo:any = "";
+  email:any = "";
+  firstName:any = "";
+  lastName:any = "";
+  password:any = "";
 
-  constructor(public usersService: UsersService,
-              private ngZone: NgZone,
-              private router: Router) {
-    this.pseudo = "";
-    this.email = "";
-    this.firstName = "";
-    this.lastName = "";
-    this.password = "";
-  }
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -36,11 +28,12 @@ export class RegisterComponent implements OnInit {
       lastName: this.lastName,
       password: this.password
     }
-    this.usersService.register(user).subscribe(
-      () => {
-        this.ngZone.run(() => this.router.navigateByUrl('/'))
+    this.authService.register(user).subscribe(
+      (userInfo:any) => {
+        this.authService.connectedUser = userInfo;
+        this.router.navigate(["/events"]);
       }, (error: any) => {
-        console.log(error);
+        console.log("error register:", error);
       });
   }
 }
