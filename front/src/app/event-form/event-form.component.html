@@ -1,0 +1,27 @@
+<form class="event-form" action="">
+  <div class="form-field">
+    <h3>Choisissez votre sport</h3>
+    <app-sport-radio-buttons></app-sport-radio-buttons>
+  </div>
+  <div class="form-field">
+    <h3>Donner un titre à votre événement</h3>
+    <div class="inputBox">
+      <input name="email" type="text" required />
+      <span>Ex. Match de foot à 11</span>
+    </div>
+  </div>
+  <div class="form-field">
+    <h3>Choisissez le lieu</h3>
+    <app-map></app-map>
+  </div>
+  <div class="form-field">
+    <h3>Choisissez le nombre de personnes 19</h3>
+    <div class="rangeinput">
+      <span class="value">{{rangeValue}}</span>
+      <input (input)="updateValue($event)" type="range" min="2" max="30" step="1" value="2">
+    </div>
+  </div>
+  <div class="inputBox">
+    <input type="submit" value="C'est parti">
+  </div>
+</form>

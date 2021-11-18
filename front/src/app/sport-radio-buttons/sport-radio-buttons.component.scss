@@ -1,0 +1,52 @@
+.sport-radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.sport-radio .ng-fa-icon {
+	margin: 0.5rem;
+}
+
+#radios label {
+	position: relative;
+}
+
+input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+}
+
+input[type="radio"] + .ng-fa-icon {
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+input + .ng-fa-icon {
+	cursor: pointer;
+}
+
+input[class="basketball"]:hover + .ng-fa-icon,
+input[class="basketball"]:checked + .ng-fa-icon,
+input[class="basketball"]:focus + .ng-fa-icon {
+  color: rgb(255, 149, 1);
+}
+
+input[class="tennis"]:hover + .ng-fa-icon,
+input[class="tennis"]:checked + .ng-fa-icon,
+input[class="tennis"]:focus + .ng-fa-icon {
+  color: rgb(255, 234, 1);
+}
+
+input[class="football"]:hover + .ng-fa-icon,
+input[class="football"]:checked + .ng-fa-icon,
+input[class="football"]:focus + .ng-fa-icon {
+  color: rgb(0, 204, 79);
+}
+
+input[class="sad"]:hover + .ng-fa-icon,
+input[class="sad"]:checked + .ng-fa-icon,
+input[class="sad"]:focus + .ng-fa-icon {
+	color: rgb(217, 0, 0);
+}

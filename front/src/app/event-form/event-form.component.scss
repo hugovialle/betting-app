@@ -1,0 +1,117 @@
+@import '../../assets/scss/colors.scss';
+
+.event-form {
+  background: $white;
+  box-shadow: 0px 0px 25px rgb(149 157 165 / 20%);
+  padding: 32px;
+  border-radius: 16px;
+
+  h3 {
+    margin: 24px 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+.inputBox {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  input[type="text"] {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid $primary;
+    color: $black;
+  }
+  input[type="submit"] {
+    width: 50%;
+    padding: 5px 0;
+    font-size: 16px;
+    border: none;
+    background: $primary;
+    color: $white;
+    border-radius: 8px;
+    font-weight: normal;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    &:hover {
+      background: $white;
+      outline: 2px solid $primary;
+      outline-offset: -2px;
+      color:$primary;
+    }
+  }
+  span {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    pointer-events: none;
+    font-size: 18px;
+    color: $black;
+    transition: 0.3s;
+  }
+}
+
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+  // transform: translateY(-25px);
+  // font-size: 14px;
+  // letter-spacing: 1px;
+  // color: rgb(170, 170, 170);
+  opacity: 0;
+}
+
+.rangeinput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+input[type="submit"] {
+  margin: 0 auto;
+}
+
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: #bdc3c7;
+  height: 5px;
+  border-radius: 5px;
+  margin: 16px auto;
+  outline: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: $primary;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: grab;
+  border: 0px solid $primary;
+  // transition: .3s ease-in-out;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.5);
+  background: $white;
+  outline: 2px solid $primary;
+  outline-offset: -2px;
+}

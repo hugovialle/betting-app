@@ -11,6 +11,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { EventsComponent } from './events/events.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './profile/profile.component';
+import { EventFormComponent } from './event-form/event-form.component';
+import { MapComponent } from './map/map.component';
+import { SportRadioButtonsComponent } from './sport-radio-buttons/sport-radio-buttons.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NavbarComponent,
     EventCardComponent,
-    EventsComponent
+    EventsComponent,
+    ProfileComponent,
+    EventFormComponent,
+    MapComponent,
+    SportRadioButtonsComponent
   ],
   imports: [
     BrowserModule,
