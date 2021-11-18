@@ -1,6 +1,5 @@
-import {Component, NgZone, OnInit} from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import {UsersService} from "../services/users.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,29 +9,25 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
-  password: string;
+  pseudo:any = "";
+  password:any = "";
 
-  constructor(public usersService: UsersService,
-              private ngZone: NgZone,
-              private router: Router) {
-    this.email = "";
-    this.password = "";
-  }
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
   handleLogIn():void{
     let user = {
-      email: this.email,
+      pseudo: this.pseudo,
       password: this.password
     }
-    this.usersService.logIn(user).subscribe(
-      () => {
-        this.ngZone.run(() => this.router.navigateByUrl('/'))
+    this.authService.logIn(user).subscribe(
+      (userInfo:any) => {
+        this.authService.connectedUser = userInfo;
+        this.router.navigate(["/events"]);
       }, (error: any) => {
-        console.log(error);
+        console.log("error log in:", error);
       });
   }
 }

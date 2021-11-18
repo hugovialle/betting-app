@@ -18,7 +18,6 @@ module.exports.getByActivityType = async (req, res) => {
 }
 
 module.exports.getByArrondissement = async (req, res) => {
-    const nb = parseInt(req.params.inscodepostal);
-    const locations = await LocationModel.find({ "fields.inscodepostal": nb});
+    const locations = await LocationModel.find({ "fields.inscodepostal": req.params.inscodepostal});
     res.status(200).json(locations);
 }

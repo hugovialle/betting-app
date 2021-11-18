@@ -7,10 +7,20 @@
 const EventModel = require('../models/event.model.js');
 const ObjectID = require('mongoose').Types.ObjectId;
 
-module.exports.getByDate = async (req, res) => {
+module.exports.getEventByDate = async (req, res) => {
     try{
-        const slots = await EventModel.find({ date: req.params.date}).select().sort();
-        res.status(200).json(slots);
+        const event = await EventModel.find({ date: req.params.date}).select().sort();
+        res.status(200).json(event);
+    }
+    catch(err) {
+        res.status(200).send({ err })
+    }
+}
+
+module.exports.getEventById = async (req, res) => {
+    try{
+        const event = await EventModel.find({ _id: req.params.id}).select();
+        res.status(200).json(event);
     }
     catch(err) {
         res.status(200).send({ err })
@@ -18,16 +28,16 @@ module.exports.getByDate = async (req, res) => {
 }
 
 module.exports.getAllEvents = async (req, res) => {
-    const slots = await EventModel.find({}).select();
-    res.status(200).json(slots);
+    const events = await EventModel.find({}).select();
+    res.status(200).json(events);
 }
 
 module.exports.addEvent = async (req, res) => {
     const {date, title, sport, peopleCount, place_id, creator_id, participants_id} = req.body
 
     try{
-        const slot = await EventModel.create({date, title, sport, peopleCount, place_id, creator_id, participants_id});
-        res.status(200).json({slot: slot._id});
+        const event = await EventModel.create({date, title, sport, peopleCount, place_id, creator_id, participants_id});
+        res.status(200).json({event: event._id});
     }
     catch(err) {
         res.status(200).send({ err })

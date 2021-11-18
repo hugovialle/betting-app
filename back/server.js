@@ -1,10 +1,16 @@
 const express = require('express');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config({path: './config/.env'});
 require('./config/db');
 const app = express();
 const port = process.env.PORT || 8000
 const cors = require('cors');
+app.use(session({
+    secret: "mySecretKey",
+    cookie:{maxAge: 24 * 60 * 60 * 1000},
+    resave: true,
+    saveUninitialized: true}));
 // Routes imports
 const userRoutes = require('./routes/user.routes');
 const eventRoutes = require('./routes/event.routes');
@@ -35,9 +41,9 @@ app.get('/jwtid', requireAuth, (req, res) => {
 });
 
 //routes
-app.use('/user', userRoutes);
-app.use('/events', eventRoutes);
-app.use('/locations', locationRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/locations', locationRoutes);
 
 // server
 app.listen(port, () => {
