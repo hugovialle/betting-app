@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faBaseballBall, faBasketballBall, faFutbol, faRunning } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -11,7 +12,12 @@ export class EventCardComponent implements OnInit {
   basketIcon = faBasketballBall;
   tennisIcon = faBaseballBall;
   runningIcon = faRunning;
-  constructor() { }
+
+  router: string;
+
+  constructor(private _router: Router) {
+    this.router = _router.url;
+  }
 
   ngOnInit(): void {
   }

@@ -1,7 +1,15 @@
+.container {
+  margin-top: 10vh;
+  padding: 0 10vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  h1 {
+    margin-bottom: 32px;
+  }
+}
 
 .events {
-  height: calc(100vh - 100px);
-  padding: 0 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;

@@ -21,6 +21,8 @@
     "@fortawesome/angular-fontawesome": "^0.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@types/mapbox-gl": "^2.4.2",
+    "mapbox-gl": "^2.6.0",
     "nodemon": "^2.0.15",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
