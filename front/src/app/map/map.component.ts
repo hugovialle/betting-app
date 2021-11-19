@@ -60,7 +60,17 @@ export class MapComponent implements OnInit {
                         <span>${location.fields.inscodepostal}</span>
                   </p>`;
         const atag = document.createElement('div');
-        atag.innerHTML = `<button id="${i}">Select</button>`
+        atag.style.display = "flex";
+        atag.style.justifyContent = "center";
+        atag.style.alignItems = "center";
+        atag.innerHTML = `<button
+                          style="width: 50%;
+                          padding: 5px 0;
+                          font-size: 12px;
+                          border: none;
+                          background: #61d2ff;
+                          color: #fff;
+                          border-radius: 8px;" id="${i}">Select</button>`
 
         popupContent.appendChild(atag);
         atag.addEventListener('click', (e)=>{
@@ -70,7 +80,7 @@ export class MapComponent implements OnInit {
           .setDOMContent(popupContent);
 
         // make a marker for each feature and add it to the map
-        let marker = new mapboxgl.Marker()
+        let marker = new mapboxgl.Marker({ color: "#61d2ff"})
           .setLngLat([location.fields.equgpsx, location.fields.equgpsy])
           .setPopup(popup
           )
