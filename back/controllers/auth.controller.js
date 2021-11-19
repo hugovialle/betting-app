@@ -32,19 +32,30 @@ module.exports.addUser = async (req, res) => {
         email: req.body.email
     });
 
-    UserModel.countDocuments({pseudo: newUser.pseudo}, function (err, count){
-        if (err) return res.status(401).json({msg:"Error"});
-        if (count > 0) {
-            return res.status(409).json({msg: "This pseudo already exists"});
-        }
-        else {
-            newUser.save().then((error, user)=>{
-                if(error) return console.error(error);
-                req.session.userId = user._id;
-                return res.status(200).json({ user: user._id, firstName: user.firstName, lastName: user.lastName});
+    let user = await UserModel.findOne({ pseudo: req.body.pseudo });
+    if (user) {
+        return res.status(400).send('That user already exisits!');
+    } else {
+        // Insert the new user if they do not exist yet
+
+        await newUser.save(function(error, user){
+            if(error){
+                return res.status(409).send({ message: error });
+            }
+
+            const token = jwt.sign({ id: user.id }, process.env.TOKEN_SECRET, {
+                expiresIn: 10400 // 24 hours
             });
-        }
-    });
+
+            res.status(200).send({
+                id: user._id,
+                pseudo: user.pseudo,
+                email: user.email,
+                accessToken: token
+            });
+
+        });
+    }
 }
 
 
@@ -55,30 +66,43 @@ module.exports.addUser = async (req, res) => {
  * @return {Promise<void>}
  */
 module.exports.signIn = async (req, res) => {
-    //const { pseudo, password } = req.body
-    //const user = await UserModel.login(pseudo, password);
-    //const user = await UserModel.findOne({ pseudo: pseudo });
-    UserModel.findOne({pseudo: req.body.pseudo, password: req.body.password}, (error, user) =>{
-        if (error) return res.status(401).json({msg: "Error"});
-        if (!user) return res.status(401).json({msg: "Wrong login"});
-        req.session.userId = user._id;
-        return res.status(200).json({ user: user._id, firstName: user.firstName, lastName: user.lastName});
-    });
+    UserModel.findOne({
+        pseudo: req.body.pseudo
+    })
 
-/*    if (user) {
-        const auth = await bcrypt.compare(password, user.password);
-        if (auth) {
-            res.status(200).json({ user: user._id, firstName: user.firstName, lastName: user.lastName})
-        }
-        res.status(409).json({msg: "Incorrect password" });
-    }
-    res.status(409).json({msg: "Incorrect pseudo" });*/
-/*        const token = createToken(user._id);
-        req.session.userId = user._id;
-        res.cookie('jwt', token, { httpOnly: true, maxAge});
-    } catch (err) {
-        const errors = signInErrors(err);
-    }*/
+        .exec((err, user) => {
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
+
+            if (!user) {
+                return res.status(404).send({ message: "User Not found." });
+            }
+
+            const passwordIsValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+            );
+
+            if (!passwordIsValid) {
+                return res.status(401).send({
+                    accessToken: null,
+                    message: "Invalid Password!"
+                });
+            }
+
+            const token = jwt.sign({ id: user.id }, process.env.TOKEN_SECRET, {
+                expiresIn: 10400 // 24 hours
+            });
+
+            res.status(200).send({
+                _id: user._id,
+                pseudo: user.pseudo,
+                email: user.email,
+                accessToken: token
+            });
+        });
 }
 
 /**
@@ -93,8 +117,6 @@ module.exports.logout = async (req, res) => {
             return res.status(409).json({msg: "error"});
         res.status(200).json({msg: "Successfully logged out"})
     })
-    //res.cookie('jwt', '', { maxAge: 1 });
-    //res.redirect('/');
 }
 
 /**

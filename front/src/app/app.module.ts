@@ -16,6 +16,9 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { MapComponent } from './map/map.component';
 import { SportRadioButtonsComponent } from './sport-radio-buttons/sport-radio-buttons.component';
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,7 @@ import { SportRadioButtonsComponent } from './sport-radio-buttons/sport-radio-bu
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

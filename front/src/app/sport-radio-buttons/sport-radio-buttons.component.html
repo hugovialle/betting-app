@@ -1,5 +1,5 @@
-<div class="sport-radio" *ngFor="let sport of sports">
-  <label [for]="sport.lowCase">
+<div class="sport-radio">
+  <label *ngFor="let sport of sports" [for]="sport.lowCase">
     <input type="radio" name="rating" (change)="handleChange($event)" [class]="sport.lowCase" [id]="sport.lowCase" [value]="sport.value" />
     <fa-icon [icon]="sport.icon" size="2x"></fa-icon>
   </label>
