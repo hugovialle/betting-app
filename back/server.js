@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config({path: './config/.env'});
-require('./config/db');
+require('./config/db.config');
 const app = express();
 const port = process.env.PORT || 8000
 const cors = require('cors');
@@ -41,9 +41,11 @@ app.get('/jwtid', requireAuth, (req, res) => {
 });
 
 //routes
-app.use('/api/user', userRoutes);
+//app.use('/api/user', userRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/locations', locationRoutes);
+
+require('./routes/user.routes')(app);
 
 // server
 app.listen(port, () => {

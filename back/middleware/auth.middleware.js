@@ -28,18 +28,18 @@ module.exports.checkUser = (req, res, next) => {
 };
 
 module.exports.requireAuth = (req, res, next) => {
-    const token = req.cookies.jwt;
+    let token = req.headers["x-access-token"];
+
     if (token) {
         jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
             if (err) {
-                console.log(err);
-                res.send(200).json('no token')
+                return res.status(401).send({ message: "Unauthorized!" });
             } else {
-                console.log(decodedToken.id);
+                req.userId = decodedToken.id;
                 next();
             }
         });
     } else {
-        console.log('No token');
+        return res.status(403).send({message: "No token provided!"});
     }
-};
+}

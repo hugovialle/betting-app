@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../services/token-storage.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,17 @@ export class LoginComponent implements OnInit {
 
   pseudo:any = "";
   password:any = "";
+  isConnected = false;
+  subscription!: Subscription;
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router, private tokenStorage: TokenStorageService) {}
 
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isConnected = true;
+    }
+
+    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
   }
 
   handleLogIn():void{
@@ -23,11 +32,18 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
     this.authService.logIn(user).subscribe(
-      (userInfo:any) => {
-        this.authService.connectedUser = userInfo;
-        this.router.navigate(["/events"]);
-      }, (error: any) => {
-        console.log("error log in:", error);
-      });
+          (info:any) => {
+            this.tokenStorage.saveToken(info.accessToken);
+            this.tokenStorage.saveUser(info);
+            this.newConnection();
+            this.router.navigate(['/profile'])
+          }, (error: any) => {
+            console.log("error log in:", error);
+          });
   }
+
+  newConnection() {
+      this.authService.changeConnectionStatus(true)
+  }
+
 }

@@ -18,13 +18,13 @@ const userSchema = new mongoose.Schema(
 );
 
 /**
- * Encrypt the password of the user
+ * Encrypt the password of the user with bcrypt
  */
-/*userSchema.pre("save", async function(next) {
+userSchema.pre("save", async function(next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
     next();
-});*/
+});
 
 /**
  * Verify that the user exists and that the given password is correct

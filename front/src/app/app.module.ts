@@ -24,6 +24,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +62,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
   ],
+  providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
