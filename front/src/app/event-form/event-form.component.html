@@ -11,8 +11,11 @@
     </div>
   </div>
   <div class="form-field">
+    <h3>Choisissez la date</h3>
+  </div>
+  <div class="form-field">
     <h3>Choisissez le lieu</h3>
-    <h5>Vous avez choisi: {{this.locationName}}</h5>
+    <h4>Vous avez choisi: {{this.locationName}}</h4>
     <div class="map-container" id="new-event">
       <app-map [event]="this.event" [locations]="this.locations" (selectedLocation)="handleSelectedLocation($event)"></app-map>
     </div>
