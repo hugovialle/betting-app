@@ -43,7 +43,7 @@ form {
 
 .inputBox {
   position: relative;
-  margin-bottom: 33px;
+  margin-bottom: 16px;
   input {
     padding: 5px 0;
     font-size: 16px;
@@ -68,9 +68,6 @@ form {
 
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span {
-  transform: translateY(-25px);
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: rgb(170, 170, 170);
+  opacity: 0;
 }
 

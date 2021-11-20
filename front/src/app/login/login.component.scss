@@ -69,9 +69,6 @@ form {
 
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span {
-  transform: translateY(-25px);
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: rgb(170, 170, 170);
+  opacity: 0;
 }
 

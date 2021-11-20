@@ -17,21 +17,23 @@
   grid-gap: 32px;
   margin-top: 32px;
   .right, .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    justify-items: flex-start;
   }
 }
 
 .participants {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  grid-gap: 8px;
   .participant {
     display: flex;
-    justify-content: center;
     align-items: center;
+    min-width: 130px;
+    padding: 4px;
     .names {
       display: flex;
       flex-direction: column;
