@@ -19,6 +19,7 @@ export class EventCardComponent implements OnInit {
   tennisIcon = faBaseballBall;
   runningIcon = faRunning;
 
+
   @Input() event! : EventCard;
   router: string;
 
@@ -68,7 +69,6 @@ export class EventCardComponent implements OnInit {
     if(sportType=="Running") {return this.runningIcon}
     if(sportType=="Basketball") {return this.basketIcon}
     if(sportType=="Tennis") {return this.tennisIcon}
-
   }
 
   handleParticipate(){
