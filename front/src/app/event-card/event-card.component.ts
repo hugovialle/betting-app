@@ -76,7 +76,7 @@ export class EventCardComponent implements OnInit {
     this.event.participants_id.push(userId);
     this.eventsService.updateEvent(this.event).subscribe(
       (event:any) =>{
-        this.event = event;
+        // this.event = event;
         console.log(event);
       },
       ()=>{
