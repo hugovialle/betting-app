@@ -23,6 +23,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,

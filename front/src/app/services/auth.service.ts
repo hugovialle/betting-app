@@ -1,45 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {BehaviorSubject, Observable } from "rxjs";
 import {Router} from "@angular/router";
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  withCredentials: true
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  connectedUser:any = null;
-  // store the URL so we can redirect after logging in
-  public redirectUrl: string | null = "http://localhost:4200/events";
+
+  isConnected:boolean = false;
+  public connectedSource = new BehaviorSubject(false);
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  changeConnectionStatus(status: boolean) {
+    this.connectedSource.next(status);
+  }
+
   logIn(user:any):Observable<any> {
-    return this.http.post(`http://localhost:3000/api/user/login`, user, { withCredentials: true});
+    return this.http.post(`http://localhost:3000/api/user/login`, user, httpOptions);
   }
 
   register(user:any):Observable<any> {
-    return this.http.post(`http://localhost:3000/api/user/register`, user, { withCredentials: true});
+    return this.http.post(`http://localhost:3000/api/user/register`, user, httpOptions);
   }
 
   logOut():Observable<any>{
-    return this.http.post(`http://localhost:3000/api/user/logout`,{ withCredentials: true});
-  }
-
-  isLogged(){
-    this.http.get(`http://localhost:3000/api/user/logout`, {withCredentials: true}).subscribe(
-      (connectedUser) => {
-        this.connectedUser = connectedUser;
-        if (this.redirectUrl) {
-          this.router.navigate([this.redirectUrl]);
-          this.redirectUrl = null;
-        }
-        console.log(this.connectedUser);
-        console.log("Connected");
-      },
-      (error) => {
-        console.log("Not connected");
-      }
-    )
+    return this.http.post(`http://localhost:3000/api/user/logout`,httpOptions);
   }
 
 }

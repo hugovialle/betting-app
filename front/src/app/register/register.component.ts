@@ -1,6 +1,8 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import {Component, OnInit, NgZone, Output, EventEmitter} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../services/token-storage.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -15,12 +17,21 @@ export class RegisterComponent implements OnInit {
   lastName:any = "";
   password:any = "";
 
-  constructor(public authService: AuthService, private router: Router) {}
+  isConnected = false;
+  subscription!: Subscription;
+
+  constructor(public authService: AuthService, private router: Router, private tokenStorage: TokenStorageService) {}
 
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isConnected = true;
+    }
+
+    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
   }
 
   handleRegister():void{
+
     let user = {
       pseudo: this.pseudo,
       email: this.email,
@@ -28,12 +39,20 @@ export class RegisterComponent implements OnInit {
       lastName: this.lastName,
       password: this.password
     }
+
     this.authService.register(user).subscribe(
-      (userInfo:any) => {
-        this.authService.connectedUser = userInfo;
-        this.router.navigate(["/events"]);
+      (info:any) => {
+          this.tokenStorage.saveToken(info.accessToken);
+          this.tokenStorage.saveUser(info);
+          console.log(info);
+          this.newConnection();
+          this.router.navigate(["/events"]);
       }, (error: any) => {
-        console.log("error register:", error);
+        console.log("error log in:", error);
       });
+  }
+
+  newConnection() {
+    this.authService.changeConnectionStatus(true)
   }
 }

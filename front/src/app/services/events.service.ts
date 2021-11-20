@@ -30,6 +30,10 @@ export class EventsService {
     return this.http.get("http://localhost:3000/api/events/",eventId);
   }
 
+  getEventsByUserId(userId:any):Observable<any> {
+    return this.http.get("http://localhost:3000/api/events/user/"+userId);
+  }
+
   saveEvent(eventCard:EventCard):any {
     let index = this.events.indexOf(eventCard);
     this.events.splice(index,1);
