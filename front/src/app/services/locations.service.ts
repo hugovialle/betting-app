@@ -10,13 +10,8 @@ export class LocationsService {
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
-  getLocations():any{
-    return this.http.get("http://localhost:3000/api/locations");
-  }
-
-  getLocationByArrondissement(locationId:any):Observable<any> {
-    console.log(locationId);
-    return this.http.get("http://localhost:3000/api/locations/arrondissement/",locationId);
+  getLocationById(locationId:any):Observable<any> {
+    return this.http.get("http://localhost:3000/api/locations/id/"+locationId);
   }
 
   getLocationsBySport(sport:any):Observable<any> {

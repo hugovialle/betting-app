@@ -27,6 +27,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EventViewComponent } from './event-view/event-view.component';
 import {AuthGuard} from "./auth.guard";
+import {LoggedInAuthGuard} from "./logged-in-auth.guard";
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import {AuthGuard} from "./auth.guard";
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
     AuthGuard,
+    LoggedInAuthGuard,
     authInterceptorProviders],
   bootstrap: [AppComponent]
 })

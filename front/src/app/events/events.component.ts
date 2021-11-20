@@ -9,7 +9,6 @@ import { EventsService } from '../services/events.service';
 })
 export class EventsComponent implements OnInit {
   events: EventCard[] = [];
-  //currentEvent: EventCard = {};
   currentIndex = -1;
   title = '';
 
@@ -56,7 +55,6 @@ export class EventsComponent implements OnInit {
           const { events, totalItems } = response;
           this.events = events;
           this.count = totalItems;
-          console.log(response);
         },
         (error:any) => {
           console.log(error);

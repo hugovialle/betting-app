@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router} from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { TokenStorageService } from "./services/token-storage.service";
 
@@ -17,7 +17,6 @@ export class AuthGuard implements CanActivate {
       // If they do, return true and allow the user to load app
       return true;
     }
-
     // If not, they redirect them to the login page
     this.router.navigate(['/login']);
     return false;

@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserEvents();
     this.currentUser = this.token.getUser();
-
   }
 
   addEvent(newEvent: EventCard){
@@ -31,7 +30,6 @@ export class ProfileComponent implements OnInit {
     this.eventsService.getEventsByUserId(this.token.getUser()._id).subscribe(
       (events:any) =>{
         this.events = events;
-        console.log(events);
       },
       ()=>{
         console.log("Error");

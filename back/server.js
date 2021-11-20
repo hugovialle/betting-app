@@ -6,13 +6,14 @@ require('./config/db.config');
 const app = express();
 const port = process.env.PORT || 8000
 const cors = require('cors');
+
 app.use(session({
     secret: "mySecretKey",
     cookie:{maxAge: 24 * 60 * 60 * 1000},
     resave: true,
     saveUninitialized: true}));
+
 // Routes imports
-const userRoutes = require('./routes/user.routes');
 const eventRoutes = require('./routes/event.routes');
 const locationRoutes = require('./routes/location.routes');
 
@@ -41,7 +42,6 @@ app.get('/jwtid', requireAuth, (req, res) => {
 });
 
 //routes
-//app.use('/api/user', userRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/locations', locationRoutes);
 require('./routes/user.routes')(app);

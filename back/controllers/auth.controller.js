@@ -7,15 +7,6 @@
 const UserModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
-const { signInErrors } = require("../utils/error.utils");
-
-const maxAge = 3 * 24 * 60 * 60 * 1000;
-
-const createToken = (id) => {
-    return jwt.sign({id}, process.env.TOKEN_SECRET, {
-        expiresIn: maxAge
-    })
-};
 
 /**
  * Create a new user in the DB.
@@ -130,4 +121,16 @@ module.exports.isLogged = async (req,res) => {
         req.session.userId = user._id;
         res.status(200).json({ user: user._id, firstName: user.firstName, lastName: user.lastName});
     });
+}
+
+module.exports.getUserById = async (req,res) => {
+    try{
+        const user = await UserModel.find({
+            _id: req.params.id
+        }).select();
+        return res.status(200).json(user);
+    }
+    catch(err) {
+        return res.status(200).send({ err })
+    }
 }

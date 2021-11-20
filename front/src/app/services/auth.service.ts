@@ -15,7 +15,7 @@ export class AuthService {
   isConnected!:boolean;
   public connectedSource = new BehaviorSubject(false);
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   changeConnectionStatus(status: boolean) {
     this.connectedSource.next(status);
@@ -31,6 +31,10 @@ export class AuthService {
 
   logOut():Observable<any>{
     return this.http.post(`http://localhost:3000/api/user/logout`,httpOptions);
+  }
+
+  getUserById(id:string):Observable<any>{
+    return this.http.get(`http://localhost:3000/api/user/`+id);
   }
 
 }

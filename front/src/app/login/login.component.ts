@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           (info:any) => {
             this.tokenStorage.saveToken(info.accessToken);
             this.tokenStorage.saveUser(info);
-            //this.newConnection();
+            this.newConnection();
             this.router.navigate(['/profile']);
             window.location.reload();
           }, (error: any) => {

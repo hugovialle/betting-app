@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
@@ -26,22 +26,11 @@ export class EventsService {
     return this.http.get("http://localhost:3000/api/events");
   }
 
-  getEvent(eventId:any):Observable<any> {
-    console.log(eventId);
-    return this.http.get("http://localhost:3000/api/events/",eventId);
-  }
-
   getEventsByUserId(userId:any):Observable<any> {
     return this.http.get("http://localhost:3000/api/events/user/"+userId);
   }
 
   getAllByPage(page:number, limit:number, selectedElements:any):Observable<any> {
-/*    if(selectedElements.selectedArrondissement !== "" && selectedElements.selectedArrondissement !== undefined){
-      params = params.append('arrondissement', selectedElements.selectedArrondissement);
-    }
-    if(selectedElements.selectedSport !== "" && selectedElements.selectedSport !== undefined){
-      params = params.append('sport', "Running");
-    }*/
     return this.http.get("http://localhost:3000/api/events/pagination/"+limit+"/"+page, {params: selectedElements});
   }
 

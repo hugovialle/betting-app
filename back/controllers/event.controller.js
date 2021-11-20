@@ -77,7 +77,6 @@ module.exports.getEventByUserId = async (req, res) => {
 }
 
 module.exports.addEvent = async (req, res) => {
-    const {date, title, sport, peopleCount,arrondissement, place_id, creator_id, participants_id} = req.body
     try{
         const event = await EventModel.create({date: req.body.date, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, arrondissement: req.body.arrondissement, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
         return res.status(200).json({event: event._id});
@@ -101,26 +100,11 @@ module.exports.deleteEvent = async (req, res) => {
 
 module.exports.updateEvent = async (req, res) => {
     try {
-        /*await EventModel.findOneAndUpdate({ _id: req.params.id },
-            {
-                participants_id: req.body.participants_id,
-            },
-            { new: true },
-            (err, event) => {
-                if (err) {
-                    console.log(err)
-                    //return res.status(500).send({ message: err });
-                }
-                console.log(event)
-                //return  res.json(event);
-            }
-        );*/
         await EventModel.findOne({_id: req.params.id}).
             then(doc => EventModel.updateOne({_id: doc._id}, {participants_id: req.body.participants_id})).
             then(doc => {return res.status(200).send(doc)});
     } catch (err) {
         return res.status(500).json({ message: err });
-        console.log(err);
     }
 };
 

@@ -5,7 +5,6 @@
  */
 
 const LocationModel = require('../models/location.model.js');
-const ObjectID = require('mongoose').Types.ObjectId;
 
 module.exports.getAllLocations = async (req, res) => {
     const locations = await LocationModel.find({});
@@ -20,4 +19,9 @@ module.exports.getByActivityType = async (req, res) => {
 module.exports.getByArrondissement = async (req, res) => {
     const locations = await LocationModel.find({ "fields.inscodepostal": req.params.inscodepostal});
     res.status(200).json(locations);
+}
+
+module.exports.getById = async (req, res) => {
+    const location = await LocationModel.find({_id: req.params.id});
+    res.status(200).json(location);
 }

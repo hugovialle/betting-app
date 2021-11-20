@@ -22,13 +22,6 @@ const eventSchema = new mongoose.Schema(
 
 eventSchema.plugin(mongoosePaginate);
 
-/*eventSchema.method("toJSON", function() {
-        const { __v, _id, ...object } = this.toObject();
-        object.id = _id;
-        return object;
-});*/
-
-
 const EventModel = mongoose.model("events", eventSchema);
 
 module.exports = EventModel;
