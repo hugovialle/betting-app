@@ -4,8 +4,7 @@ import {BehaviorSubject, Observable } from "rxjs";
 import {Router} from "@angular/router";
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  withCredentials: true
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({

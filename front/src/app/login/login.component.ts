@@ -11,8 +11,13 @@ import {Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit {
 
+  form: any = {
+    pseudo: null,
+    password: null
+  }
   pseudo:any = "";
   password:any = "";
+  errorMessage = '';
   isConnected = false;
   subscription!: Subscription;
 
@@ -27,10 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogIn():void{
-    let user = {
-      pseudo: this.pseudo,
-      password: this.password
-    }
+    let user = this.form;
     this.authService.logIn(user).subscribe(
           (info:any) => {
             this.tokenStorage.saveToken(info.accessToken);
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
             this.newConnection();
             this.router.navigate(['/profile'])
           }, (error: any) => {
+            this.errorMessage = error.error.message;
             console.log("error log in:", error);
           });
   }

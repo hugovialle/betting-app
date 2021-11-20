@@ -34,7 +34,7 @@ module.exports.addUser = async (req, res) => {
 
     let user = await UserModel.findOne({ pseudo: req.body.pseudo });
     if (user) {
-        return res.status(400).send('That user already exisits!');
+        return res.status(400).send({message: 'That pseudo already exisits!'});
     } else {
         // Insert the new user if they do not exist yet
 

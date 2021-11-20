@@ -59,6 +59,6 @@ export class EventsService {
   }
 
   updateEvent(eventCard:EventCard):Observable<any>{
-    return this.http.put("http://localhost:3000/api/events/"+eventCard._id, eventCard);
+    return this.http.put("http://localhost:3000/api/events/"+eventCard._id, {participants_id: eventCard.participants_id});
   }
 }

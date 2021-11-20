@@ -11,12 +11,15 @@ import {Subscription} from "rxjs";
 })
 export class RegisterComponent implements OnInit {
 
-  pseudo:any = "";
-  email:any = "";
-  firstName:any = "";
-  lastName:any = "";
-  password:any = "";
+  form: any = {
+    pseudo: null,
+    email: null,
+    firstName: null,
+    lastName: null,
+    password: null
+  };
 
+  errorMessage = '';
   isConnected = false;
   subscription!: Subscription;
 
@@ -32,13 +35,7 @@ export class RegisterComponent implements OnInit {
 
   handleRegister():void{
 
-    let user = {
-      pseudo: this.pseudo,
-      email: this.email,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      password: this.password
-    }
+    let user = this.form;
 
     this.authService.register(user).subscribe(
       (info:any) => {
@@ -48,6 +45,7 @@ export class RegisterComponent implements OnInit {
           this.newConnection();
           this.router.navigate(["/events"]);
       }, (error: any) => {
+        this.errorMessage = error.error.message;
         console.log("error log in:", error);
       });
   }

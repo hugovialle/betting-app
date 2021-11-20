@@ -1,28 +1,110 @@
 <div class="container">
-  <form class="loginForm">
+  <form class="loginForm"
+        name="form"
+        (ngSubmit)="f.form.valid && handleRegister()"
+        #f="ngForm"
+        novalidate>
     <div class="formBox">
       <h1>Rejoignez, SPORT<b>BUDDY</b></h1>
-      <div class="inputBox">
-        <input name="pseudo" type="text" [(ngModel)]="pseudo" required/>
+      <div class="inputBox form-group">
+        <input name="pseudo"
+               class="form-control"
+               type="text"
+               [(ngModel)]="form.pseudo"
+               required
+               minlength="4"
+               maxlength="15"
+               #pseudo="ngModel"
+        />
         <span>Pseudo</span>
+        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: brown">
+          <div *ngIf="pseudo.errors.required">Pseudo is required</div>
+          <div *ngIf="pseudo.errors.minlength">
+            Pseudo must be at least 4 characters
+          </div>
+          <div *ngIf="pseudo.errors.maxlength">
+            Pseudo must be at most 15 characters
+          </div>
+        </div>
       </div>
-      <div class="inputBox">
-        <input name="firstName" type="text" [(ngModel)]="firstName" required/>
+      <div class="inputBox form-group">
+        <input name="firstName"
+               class="form-control"
+               type="text"
+               [(ngModel)]="form.firstName"
+               required
+               minlength="2"
+               maxlength="15"
+               #firstName="ngModel"
+        />
         <span>Prénom</span>
+        <div class="alert-danger" *ngIf="firstName.errors && f.submitted" style="color: brown">
+          <div *ngIf="firstName.errors.required">First name is required</div>
+          <div *ngIf="firstName.errors.minlength">
+            Pseudo must be at least 2 characters
+          </div>
+          <div *ngIf="firstName.errors.maxlength">
+            Pseudo must be at most 15 characters
+          </div>
+        </div>
       </div>
-      <div class="inputBox">
-        <input name="lastName" type="text" [(ngModel)]="lastName" required/>
+      <div class="inputBox form-group">
+        <input name="lastName"
+               class="form-control"
+               type="text"
+               [(ngModel)]="form.lastName"
+               required
+               minlength="2"
+               maxlength="15"
+               #lastName="ngModel"
+        />
         <span>Nom de famille</span>
+        <div class="alert-danger" *ngIf="lastName.errors && f.submitted" style="color: brown">
+          <div *ngIf="lastName.errors.required">Last name is required</div>
+          <div *ngIf="lastName.errors.minlength">
+            Pseudo must be at least 2 characters
+          </div>
+          <div *ngIf="lastName.errors.maxlength">
+            Pseudo must be at most 15 characters
+          </div>
+        </div>
       </div>
-      <div class="inputBox">
-        <input name="email" type="text" [(ngModel)]="email" required/>
+      <div class="inputBox form-group">
+        <input name="email"
+               type="text"
+               [(ngModel)]="form.email"
+               required
+               email
+               #email="ngModel"
+        />
         <span>Email</span>
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
       </div>
-      <div class="inputBox">
-        <input name="password" type="password" [(ngModel)]="password" required/>
+      <div class="inputBox form-group">
+        <input name="password"
+               type="password"
+               [(ngModel)]="form.password"
+               required
+               minlength="3"
+               #password="ngModel"
+        />
         <span>Mot de passe</span>
+        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: brown">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 3 characters
+          </div>
+        </div>
       </div>
-      <button (click)="handleRegister()">Créer un compte</button>
+      <button class="form-group">Créer un compte</button>
+      <div class="form-group" *ngIf="f.submitted">
+        {{this.errorMessage}}
+      </div>
     </div>
   </form>
 </div>
