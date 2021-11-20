@@ -36,14 +36,13 @@ export class EventsService {
   }
 
   getAllByPage(page:number, limit:number, selectedElements:any):Observable<any> {
-    let params = new HttpParams();
-    if(selectedElements.selectedArrondissement !== "" && selectedElements.selectedArrondissement !== undefined){
+/*    if(selectedElements.selectedArrondissement !== "" && selectedElements.selectedArrondissement !== undefined){
       params = params.append('arrondissement', selectedElements.selectedArrondissement);
     }
     if(selectedElements.selectedSport !== "" && selectedElements.selectedSport !== undefined){
-      params = params.append('sport', selectedElements.selectedSport);
-    }
-    return this.http.get("http://localhost:3000/api/events/pagination/"+limit+"/"+page, {params: params});
+      params = params.append('sport', "Running");
+    }*/
+    return this.http.get("http://localhost:3000/api/events/pagination/"+limit+"/"+page, {params: selectedElements});
   }
 
   saveEvent(eventCard:EventCard):any {

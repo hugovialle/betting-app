@@ -48,6 +48,7 @@ export class EventFormComponent implements OnInit {
     this.selectedLocation = location._id;
     this.locationName = ""+location.fields.equnom+",  "+location.fields.insnovoie+" "+location.fields.inslibellevoie+", "+location.fields.inscodepostal;
     this.event.place_id = location._id;
+    this.event.arrondissement = location.fields.inscodepostal;
   }
 
   getLocations() {
@@ -64,9 +65,9 @@ export class EventFormComponent implements OnInit {
   addEvent(){
     this.event.date = "null"; //TODO
     this.event.title = this.title;
-    this.event.place_id = this.selectedLocation._id;
     this.event.sport = this.sport;
     this.event.peopleCount = +this.rangeValue;
+    console.log(this.event.arrondissement);
     this.event.creator_id = this.token.getUser()._id;
     this.event.participants_id = [];
     this.eventsService.addEvent(this.event).subscribe(
