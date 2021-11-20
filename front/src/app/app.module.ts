@@ -55,16 +55,10 @@ import { EventsListComponent } from './events-list/events-list.component';
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-
-    MatDatepickerModule,
     MatNativeDateModule,
-
     NgxPaginationModule
   ],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
-    authInterceptorProviders
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

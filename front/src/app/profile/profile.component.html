@@ -5,12 +5,12 @@
       <h3>Vos événements à venir</h3>
       <div class="events">
         <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
-      </div>
-    </div>
-    <div class="new-event-container">
-      <h3>Envie de créer un événement ?</h3>
-      <div class="new-event" id="new-event">
-        <app-event-form (newEventEvent)="addEvent($event)"></app-event-form>
+        <a routerLink="/events/new" routerLinkActive="active-link" class="cat">
+          <div class="new-event-button">
+            <fa-icon [icon]="plusIcon" size="4x"></fa-icon>
+            <span>Créer un événement</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>

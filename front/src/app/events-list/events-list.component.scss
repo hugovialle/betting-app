@@ -1,0 +1,37 @@
+.container {
+  margin-top: 10vh;
+  margin-bottom: 32px;
+  padding: 0 10vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 32px;
+  }
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-bottom: 1.3rem;
+      font-size: 20px;
+    }
+    .filters{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+.events {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  justify-content: center;
+  align-content: center;
+  margin: 32px 0;
+}
+
+.pagination {
+  margin: 1rem auto 0 auto;
+}

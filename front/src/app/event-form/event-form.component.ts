@@ -21,6 +21,11 @@ export class EventFormComponent implements OnInit {
   title!:string;
   currentUser:any;
 
+  hours = [ {id: ""}, {id: "8"}, {id: "9"}, {id: "10"}, {id: "11"}, {id: "12"}, {id: "13"}, {id: "14"}, {id: "15"}, {id: "16"}, {id: "17"}, {id: "18"}, {id: "19"}, {id: "20"}, {id: "21"}, {id: "22"}];
+
+  minutes = [ {id: ""}, {id: "05"}, {id: "10"}, {id: "15"}, {id: "20"}, {id: "25"}, {id: "30"}, {id: "35"}, {id: "40"}, {id: "45"}, {id: "50"}, {id: "55"}];
+
+
   @Output() newEventEvent = new EventEmitter<EventCard>();
 
   constructor(private locationsService: LocationsService, private eventsService: EventsService, private router: Router, private token: TokenStorageService) { }

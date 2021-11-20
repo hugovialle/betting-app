@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from "../services/events.service";
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import {TokenStorageService} from "../services/token-storage.service";
 import {EventCard} from "../models/event-card";
+
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +11,7 @@ import {EventCard} from "../models/event-card";
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  plusIcon = faPlusCircle;
   currentUser: any;
   events: any;
 
