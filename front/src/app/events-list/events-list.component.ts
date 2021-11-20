@@ -21,7 +21,7 @@ export class EventsListComponent implements OnInit {
   selectedArrondissement:string = "";
   selectedSport:string = "";
 
-  arrondissements = [ {id: ""},
+  arrondissements = [ { id: ""},
     { id: "75001"},{ id: "75002"},{ id: "75003"},{ id: "75004"},{ id: "75005"},
     { id: "75006"},{ id: "75007"},{ id: "75008"},{ id: "75009"},{ id: "75010"},
     { id: "75011"},{ id: "75012"},{ id: "75013"},{ id: "75014"},{ id: "75015"},
@@ -39,7 +39,7 @@ export class EventsListComponent implements OnInit {
   getRequestParams(page: number, size: number): any {
     let params: any = {};
     if (page) {
-      params[`page`] = page - 1;
+      params[`page`] = page ;
     }
     if (size) {
       params[`size`] = size;
@@ -74,4 +74,13 @@ export class EventsListComponent implements OnInit {
     this.getEventsPage();
   }
 
+  handleFilterChange(): void {
+    this.getEventsPage()
+  }
+
+  resetFilters() {
+    this.selectedArrondissement = "";
+    this.selectedSport = "";
+    this.getEventsPage();
+  }
 }

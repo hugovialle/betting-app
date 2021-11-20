@@ -32,12 +32,12 @@ module.exports.getAllByPage = async (req, res) => {
         sort: ({ date: 1 })
     };
 
-    EventModel.paginate(query , { offset, limit })
+    const events = EventModel.paginate(query , { page: req.params.page, limit: req.params.size })
         .then((data) => {
             res.send({
-                totalItems: data.total,
+                totalItems: data.totalDocs,
                 events: data.docs,
-                totalPages: data.pages,
+                totalPages: data.totalPages,
                 currentPage: data.page - 1,
             });
         })
@@ -91,10 +91,10 @@ module.exports.getEventByUserId = async (req, res) => {
 }
 
 module.exports.addEvent = async (req, res) => {
-    const {date, title, sport, peopleCount, place_id, creator_id, participants_id} = req.body
+    const {date, title, sport, peopleCount,arrondissement, place_id, creator_id, participants_id} = req.body
     const dateX = new Date();
     try{
-        const event = await EventModel.create({date: dateX, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
+        const event = await EventModel.create({date: dateX, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, arrondissement: req.body.arrondissement, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
         res.status(200).json({event: event._id});
     }
     catch(err) {

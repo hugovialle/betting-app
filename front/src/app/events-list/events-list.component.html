@@ -5,7 +5,7 @@
     <div class="filters">
       <mat-form-field appearance="fill">
         <mat-label>Arrondissement</mat-label>
-        <select matNativeControl [(ngModel)]="selectedArrondissement">
+        <select matNativeControl [(ngModel)]="selectedArrondissement" (change)="handleFilterChange()">
           <option *ngFor="let arrondissement of arrondissements" [value]="arrondissement.id">
             {{arrondissement.id}}
           </option>
@@ -13,12 +13,13 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Sport</mat-label>
-        <select matNativeControl [(ngModel)]="selectedSport">
+        <select matNativeControl [(ngModel)]="selectedSport" (change)="handleFilterChange()">
           <option *ngFor="let sport of sports" [value]="sport.id">
             {{sport.id}}
           </option>
         </select>
       </mat-form-field>
+      <button (click)="resetFilters()">Reset filters</button>
       <mat-form-field appearance="fill">
         <mat-label>Évenements par page</mat-label>
         <select matNativeControl (change)="handlePageSizeChange($event)">
