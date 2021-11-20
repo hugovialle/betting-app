@@ -81,7 +81,7 @@ export class EventCardComponent implements OnInit {
       },
       ()=>{
         console.log("Error");
-        this.event.participants_id.pop();
+        // this.event.participants_id.pop();
       }
     );
   }
