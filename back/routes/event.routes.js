@@ -8,7 +8,7 @@ const router = require('express').Router()
 const eventController = require('../controllers/event.controller');
 const {requireAuth} = require('../middleware/auth.middleware');
 
-router.post("/add", requireAuth, eventController.addEvent);
+router.post("/add", eventController.addEvent);
 router.get("/:id", eventController.getEventById);
 router.put("/:id", eventController.updateEvent);
 

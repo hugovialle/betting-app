@@ -7,18 +7,9 @@
 const EventModel = require('../models/event.model.js');
 const ObjectID = require('mongoose').Types.ObjectId;
 
-const getPagination = (page, size) => {
-    const limit = size ? +size : 3;
-    const offset = page ? page * limit : 0;
-
-    return { limit, offset };
-};
-
 module.exports.getAllByPage = async (req, res) => {
-    const { page, size } = req.params;
     const arrondissement = req.query.arrondissement;
     const sport = req.query.sport;
-    const { limit, offset } = getPagination(page, size);
     let query={};
     if(arrondissement){
         query.arrondissement={ $regex: new RegExp(arrondissement), $options: "i" }
@@ -34,7 +25,7 @@ module.exports.getAllByPage = async (req, res) => {
 
     const events = EventModel.paginate(query , { page: req.params.page, limit: req.params.size })
         .then((data) => {
-            res.send({
+            return res.send({
                 totalItems: data.totalDocs,
                 events: data.docs,
                 totalPages: data.totalPages,
@@ -42,7 +33,7 @@ module.exports.getAllByPage = async (req, res) => {
             });
         })
         .catch((err) => {
-            res.status(500).send({
+            return res.status(500).send({
                 message:
                     err.message || "Some error occurred while retrieving tutorials.",
             });
@@ -52,26 +43,26 @@ module.exports.getAllByPage = async (req, res) => {
 module.exports.getEventByDate = async (req, res) => {
     try{
         const event = await EventModel.find({ date: req.params.date}).select().sort();
-        res.status(200).json(event);
+        return res.status(200).json(event);
     }
     catch(err) {
-        res.status(200).send({ err })
+        return res.status(200).send({ err })
     }
 }
 
 module.exports.getEventById = async (req, res) => {
     try{
         const event = await EventModel.find({ _id: req.params.id}).select();
-        res.status(200).json(event);
+        return res.status(200).json(event);
     }
     catch(err) {
-        res.status(200).send({ err })
+        return res.status(200).send({ err })
     }
 }
 
 module.exports.getAllEvents = async (req, res) => {
     const events = await EventModel.find({}).select();
-    res.status(200).json(events);
+    return res.status(200).json(events);
 }
 
 module.exports.getEventByUserId = async (req, res) => {
@@ -83,10 +74,10 @@ module.exports.getEventByUserId = async (req, res) => {
                 participants_id: { $elemMatch: { $eq: req.params._id}}
             }]
         }).select();
-        res.status(200).json(event);
+        return res.status(200).json(event);
     }
     catch(err) {
-        res.status(200).send({ err })
+        return res.status(200).send({ err })
     }
 }
 
@@ -95,10 +86,10 @@ module.exports.addEvent = async (req, res) => {
     const dateX = new Date();
     try{
         const event = await EventModel.create({date: dateX, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, arrondissement: req.body.arrondissement, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
-        res.status(200).json({event: event._id});
+        return res.status(200).json({event: event._id});
     }
     catch(err) {
-        res.status(200).send({ err })
+        return res.status(200).send({ err })
     }
 }
 
@@ -115,28 +106,27 @@ module.exports.deleteEvent = async (req, res) => {
 }
 
 module.exports.updateEvent = async (req, res) => {
-    if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("ID unknown : " + req.params.id);
-
     try {
-        await EventModel.findOneAndUpdate(
-            { _id: req.params.id },
+        /*await EventModel.findOneAndUpdate({ _id: req.params.id },
             {
-                $set: {
-                    /*isBooked: req.body.isBooked,
-                    firstName: req.body.firstName,
-                    familyName: req.body.lastName,
-                    phone: req.body.phone,*/
-                },
+                participants_id: req.body.participants_id,
             },
-            { new: true, upsert: true, setDefaultsOnInsert: true },
-            (err, docs) => {
-                if (!err) return res.send(docs);
-                if (err) return res.status(500).send({ message: err });
+            { new: true },
+            (err, event) => {
+                if (err) {
+                    console.log(err)
+                    //return res.status(500).send({ message: err });
+                }
+                console.log(event)
+                //return  res.json(event);
             }
-        );
+        );*/
+        await EventModel.findOne({_id: req.params.id}).
+            then(doc => EventModel.updateOne({_id: doc._id}, {participants_id: req.body.participants_id})).
+            then(doc => {return res.status(200).send(doc)});
     } catch (err) {
         return res.status(500).json({ message: err });
+        console.log(err);
     }
 };
 

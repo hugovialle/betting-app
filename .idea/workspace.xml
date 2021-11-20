@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b65e6023-3e65-48d5-9d04-0a312e9bd41e" name="Default Changelist" comment="Pagination / filters (still working on)">
+    <list default="true" id="b95748c6-370d-4ae8-bcf7-12f14bf65cad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/controllers/event.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/event.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/models/event.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/models/event.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/events-list/events-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/events-list/events-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/events-list/events-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/events-list/events-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/models/event-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/event-card.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/routes/event.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/event.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/auth-guard.guard.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/auth.guard.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/auth-guard.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/auth.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/helpers/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/helpers/auth.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/services/events.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/events.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/services/token-storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/token-storage.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
-  <component name="ProjectId" id="20li71wtSgX8OBp2w7VhN5UNuWo" />
+  <component name="ProjectId" id="21BGQlLNM3SIDwoIWvbCAPz6zXh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,112 +42,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/front/src/app/events-list" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/front/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/front/src/app/events-list" />
-      <recent name="$PROJECT_DIR$/back" />
-      <recent name="$PROJECT_DIR$/back/models" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/front/src/app/services" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b65e6023-3e65-48d5-9d04-0a312e9bd41e" name="Default Changelist" comment="" />
-      <created>1636625404320</created>
+      <changelist id="b95748c6-370d-4ae8-bcf7-12f14bf65cad" name="Default Changelist" comment="" />
+      <created>1637407053629</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636625404320</updated>
-      <workItem from="1636625411600" duration="8000000" />
-      <workItem from="1636710436826" duration="2435000" />
-      <workItem from="1636731559444" duration="423000" />
-      <workItem from="1636734544326" duration="17000" />
-      <workItem from="1636799959398" duration="2930000" />
-      <workItem from="1636884023253" duration="18992000" />
-      <workItem from="1636974287770" duration="2453000" />
-      <workItem from="1636976764212" duration="1024000" />
-      <workItem from="1636985171902" duration="728000" />
-      <workItem from="1637015338549" duration="981000" />
-      <workItem from="1637048865992" duration="8511000" />
-      <workItem from="1637069159020" duration="7181000" />
-      <workItem from="1637103626575" duration="577000" />
-      <workItem from="1637138838304" duration="29202000" />
-      <workItem from="1637219929659" duration="34292000" />
-      <workItem from="1637303796561" duration="18955000" />
-      <workItem from="1637355769603" duration="1005000" />
-      <workItem from="1637357058952" duration="1375000" />
-      <workItem from="1637358504955" duration="993000" />
-      <workItem from="1637360201804" duration="753000" />
-      <workItem from="1637361244878" duration="344000" />
-      <workItem from="1637361613595" duration="3305000" />
-      <workItem from="1637366006297" duration="12623000" />
+      <updated>1637407053629</updated>
+      <workItem from="1637407059338" duration="11729000" />
     </task>
-    <task id="LOCAL-00001" summary="Back and front project's set up">
-      <created>1636657229388</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1636657229388</updated>
-    </task>
-    <task id="LOCAL-00002" summary="User's model, controller and route + Middleware">
-      <created>1636723321660</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1636723321661</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Adding users with angular + models">
-      <created>1637016488900</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1637016488901</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Locations controller and users service">
-      <created>1637139937586</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1637139937586</updated>
-    </task>
-    <task id="LOCAL-00005" summary="authentification and event front/back">
-      <created>1637240446066</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1637240446067</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Event creation">
-      <created>1637271322577</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1637271322579</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Authentification complete">
-      <created>1637323529238</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1637323529238</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Pagination / filters (still working on)">
-      <created>1637398680506</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1637398680506</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,21 +72,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Back and front project's set up" />
-    <MESSAGE value="User's model, controller and route + Middleware" />
-    <MESSAGE value="Adding users with angular + models" />
-    <MESSAGE value="Locations controller and users service" />
-    <MESSAGE value="authentification and event front/back" />
-    <MESSAGE value="Event creation" />
-    <MESSAGE value="Authentification complete" />
-    <MESSAGE value="Pagination / filters (still working on)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pagination / filters (still working on)" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

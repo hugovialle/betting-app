@@ -1,16 +1,52 @@
 <div class="container">
-  <form class="loginForm">
+  <form class="loginForm"
+  (ngSubmit)="f.form.valid && handleLogIn()"
+  #f="ngForm"
+  novalidate>
     <div class="formBox">
       <h1>Connectez vous à SPORT<b>BUDDY</b></h1>
-      <div class="inputBox">
-        <input name="pseudo" type="text" [(ngModel)]="pseudo" required/>
+      <div class="inputBox form-group">
+        <input name="pseudo"
+               class="form-control"
+               type="text"
+               [(ngModel)]="form.pseudo"
+               required
+               minlength="4"
+               maxlength="15"
+               #pseudo="ngModel"
+        />
         <span>Pseudo</span>
+        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: brown">
+          <div *ngIf="pseudo.errors.required">Pseudo is required</div>
+          <div *ngIf="pseudo.errors.minlength">
+            Pseudo must be at least 4 characters
+          </div>
+          <div *ngIf="pseudo.errors.maxlength">
+            Pseudo must be at most 15 characters
+          </div>
+        </div>
       </div>
-      <div class="inputBox">
-        <input name="password" type="password" [(ngModel)]="password" required/>
+      <div class="form-group inputBox">
+        <input name="password"
+               class="form-control"
+               type="password"
+               [(ngModel)]="form.password"
+               required
+               minlength="3"
+               #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: brown">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 3 characters
+          </div>
+        </div>
         <span>Mot de passe</span>
       </div>
-      <button (click)="handleLogIn()">Se connecter</button>
+      <button class="form-group">Se connecter</button>
+      <div class="form-group" *ngIf="f.submitted">
+        {{this.errorMessage}}
+      </div>
     </div>
   </form>
 </div>

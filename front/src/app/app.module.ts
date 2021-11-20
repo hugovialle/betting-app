@@ -26,6 +26,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EventViewComponent } from './event-view/event-view.component';
+import {AuthGuard} from "./auth.guard";
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { EventViewComponent } from './event-view/event-view.component';
     MatNativeDateModule,
     NgxPaginationModule
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import { faBaseballBall, faBasketballBall, faFutbol, faRunning } from '@fortawes
 import {EventCard} from "../models/event-card";
 import {ActivatedRoute} from "@angular/router";
 import { EventsService } from "../services/events.service";
+import {TokenStorageService} from "../services/token-storage.service";
 
 @Component({
   selector: 'app-event-card',
@@ -21,7 +22,10 @@ export class EventCardComponent implements OnInit {
   @Input() event! : EventCard;
   router: string;
 
-  constructor(private route: ActivatedRoute, private eventsService: EventsService, private _router: Router) {
+  constructor(private route: ActivatedRoute,
+              private eventsService: EventsService,
+              private _router: Router,
+              private tokenStorage: TokenStorageService) {
     this.router = _router.url;
   }
 
@@ -34,6 +38,23 @@ export class EventCardComponent implements OnInit {
     if(sportType=="Basketball") {return this.basketIcon}
     if(sportType=="Tennis") {return this.tennisIcon}
 
+  }
+
+  handleParticipate(){
+    let userId = this.tokenStorage.getUser()._id;
+    this.event.participants_id.push(userId);
+    console.log(userId);
+    console.log(this.event);
+    this.eventsService.updateEvent(this.event).subscribe(
+      (event:any) =>{
+        //this.event = event;
+        console.log(event);
+      },
+      ()=>{
+        console.log("Error");
+        //this.event.participants_id.pop();
+      }
+    );
   }
 
 }
