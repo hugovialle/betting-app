@@ -23,15 +23,46 @@ export class EventCardComponent implements OnInit {
   @Input() event! : EventCard;
   router: string;
 
-  constructor(private route: ActivatedRoute,
-              private eventsService: EventsService,
-              private _router: Router,
-              private tokenStorage: TokenStorageService) {
+  date!:Date;
+  hours!:number;
+  minutes!:number;
+
+  constructor(
+    private route: ActivatedRoute,
+    private eventsService: EventsService,
+    private _router: Router,
+    private tokenStorage: TokenStorageService) {
     this.router = _router.url;
   }
 
   ngOnInit(): void {
+    this.date = new Date(this.event.date);
   }
+
+  getDay():any{
+    return this.formatZero(this.date.getDate());
+  }
+
+  getHours():any{
+    return this.formatZero(this.date.getHours());
+  }
+
+  getMinutes():any{
+    return this.formatZero(this.date.getMinutes());
+  }
+
+  getMonths():any {
+    return this.formatZero(this.date.getMonth());
+  }
+
+  /**
+   * Return a number formatted. Add a zero if number is only 1 digit
+   * @example 5 => 05
+   * @param number
+   */
+  formatZero(number:any) {
+    return ('0'+number).slice(-2);
+  };
 
   ball(sportType:string):any{
     if(sportType=="Football") {return this.footIcon}
@@ -43,8 +74,6 @@ export class EventCardComponent implements OnInit {
   handleParticipate(){
     let userId = this.tokenStorage.getUser()._id;
     this.event.participants_id.push(userId);
-    console.log(userId);
-    console.log(this.event);
     this.eventsService.updateEvent(this.event).subscribe(
       (event:any) =>{
         //this.event = event;

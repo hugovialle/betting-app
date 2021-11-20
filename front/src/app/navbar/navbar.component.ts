@@ -19,14 +19,16 @@ export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.isConnected = !!this.tokenStorageService.getToken();
+    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
+
+    this.isConnected = !!(this.tokenStorageService.getToken());
+    console.log(this.isConnected);
 
     if (this.isConnected) {
       const user = this.tokenStorageService.getUser();
       this.pseudo = user.pseudo;
     }
 
-    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
   }
 
   handleLogOut(){

@@ -22,8 +22,8 @@
     <div class="top">
       <fa-icon [icon]="ball(this.event.sport)" size="2x" [styles]="{'color': 'black'}"></fa-icon>
       <div class="date">
-        <span>27 Aug</span>
-        <span>13:30</span>
+        <span>{{getDay()}}/{{getMonths()}}</span>
+        <span>{{getHours()}}:{{getMinutes()}}</span>
       </div>
     </div>
     <div class="infos">

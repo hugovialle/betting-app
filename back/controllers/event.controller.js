@@ -18,11 +18,6 @@ module.exports.getAllByPage = async (req, res) => {
         query.sport={ $regex: new RegExp(sport), $options: "i" }
     }
 
-    let options = {
-        populate: 'events',
-        sort: ({ date: 1 })
-    };
-
     const events = EventModel.paginate(query , { page: req.params.page, limit: req.params.size })
         .then((data) => {
             return res.send({
@@ -83,9 +78,8 @@ module.exports.getEventByUserId = async (req, res) => {
 
 module.exports.addEvent = async (req, res) => {
     const {date, title, sport, peopleCount,arrondissement, place_id, creator_id, participants_id} = req.body
-    const dateX = new Date();
     try{
-        const event = await EventModel.create({date: dateX, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, arrondissement: req.body.arrondissement, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
+        const event = await EventModel.create({date: req.body.date, title: req.body.title, sport: req.body.sport, peopleCount: req.body.peopleCount, arrondissement: req.body.arrondissement, place_id: req.body.place_id, creator_id: req.body.creator_id, participants_id: []});
         return res.status(200).json({event: event._id});
     }
     catch(err) {

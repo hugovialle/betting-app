@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b95748c6-370d-4ae8-bcf7-12f14bf65cad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+    <list default="true" id="b95748c6-370d-4ae8-bcf7-12f14bf65cad" name="Default Changelist" comment="Forms Validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/config/.env" beforeDir="false" afterPath="$PROJECT_DIR$/back/config/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/controllers/event.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/controllers/event.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/routes/event.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/back/routes/event.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/auth-guard.guard.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/auth.guard.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/auth-guard.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/auth.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-card/event-card.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/event-form/event-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/helpers/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/helpers/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/models/event-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/event-card.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/navbar/navbar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/register/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/services/events.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/events.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/services/token-storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/token-storage.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +48,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637407053629</updated>
-      <workItem from="1637407059338" duration="11729000" />
+      <workItem from="1637407059338" duration="19008000" />
     </task>
+    <task id="LOCAL-00001" summary="Forms Validation">
+      <created>1637425691298</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637425691298</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,5 +73,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Forms Validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forms Validation" />
   </component>
 </project>

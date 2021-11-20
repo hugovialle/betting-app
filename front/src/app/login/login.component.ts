@@ -24,11 +24,12 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router, private tokenStorage: TokenStorageService) {}
 
   ngOnInit(): void {
+    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
+
     if (this.tokenStorage.getToken()) {
       this.isConnected = true;
     }
 
-    this.subscription = this.authService.connectedSource.subscribe(isConnected => this.isConnected = isConnected);
   }
 
   handleLogIn():void{
@@ -37,8 +38,9 @@ export class LoginComponent implements OnInit {
           (info:any) => {
             this.tokenStorage.saveToken(info.accessToken);
             this.tokenStorage.saveUser(info);
-            this.newConnection();
-            this.router.navigate(['/profile'])
+            //this.newConnection();
+            this.router.navigate(['/profile']);
+            window.location.reload();
           }, (error: any) => {
             this.errorMessage = error.error.message;
             console.log("error log in:", error);

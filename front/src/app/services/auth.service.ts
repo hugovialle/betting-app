@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  isConnected:boolean = false;
+  isConnected!:boolean;
   public connectedSource = new BehaviorSubject(false);
 
   constructor(private http: HttpClient, private router: Router) { }
