@@ -56,7 +56,6 @@ import { EventsListComponent } from './events-list/events-list.component';
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule,
-
     NgxPaginationModule
   ],
   providers: [],
