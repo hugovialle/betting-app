@@ -31,8 +31,8 @@
       <span>{{event.title}}</span>
     </div>
     <div class="event_buttons">
-      <div class="button">Voir plus</div>
-      <div class="button" (click)="handleParticipate()">Participer</div>
+      <a [routerLink]="['/event/{{this.event._id}}', event]" routerLinkActive="active-link"  class="button">Voir plus</a>
+      <a class="button">Participer</a>
     </div>
   </div>
   <!--<div class="map">

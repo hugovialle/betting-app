@@ -19,42 +19,43 @@ nav {
     margin-right: 15px;
     padding: 12px 0px;
   }
-  nav .cat:hover::before {
-    transform: scale(1);
-  }
-  nav .cat::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: $primary;
-    transform: scale(0);
-    transition: 0.3s ease-in-out;
-  }
   button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: $primary;
-      color: $white;
-      padding: 8px 16px;
-      border-radius: 8px;
-      outline: none;
-      border: none;
-      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-      height: fit-content;
-      font-weight: normal;
-      &:hover {
-        background: $black;
-        outline: 2px solid $primary;
-        outline-offset: -2px;
-        color:$primary;
-      }
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary;
+    color: $white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    height: fit-content;
+    font-weight: normal;
+    &:hover {
+      background: $black;
+      outline: 2px solid $primary;
+      outline-offset: -2px;
+      color:$primary;
     }
+  }
 }
 
+nav .cat:hover::before {
+  transform: scale(1);
+}
+nav .cat::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: $primary;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
 .logo {
   font-size: 24px;
 }
