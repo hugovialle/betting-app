@@ -6,16 +6,17 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { EventFormComponent } from "./event-form/event-form.component";
-import { EventsListComponent } from './events-list/events-list.component';
+import { EventViewComponent } from './event-view/event-view.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path: 'home', component:HomeComponent },
   {path: 'login', component:LoginComponent },
   {path: 'register', component: RegisterComponent },
-  {path: 'events', component: EventsListComponent },
+  {path: 'events', component: EventsComponent },
   {path: 'profile', component: ProfileComponent },
-  {path: 'events/new', component: EventFormComponent}
+  {path: 'events/new', component: EventFormComponent},
+  {path: 'event/:id', component: EventViewComponent}
 ];
 
 @NgModule({

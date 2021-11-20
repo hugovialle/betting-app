@@ -1,6 +1,52 @@
 <div class="container">
-  <h1>Liste des événements disponibles</h1>
-  <div class="events">
-    <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
+  <h2>Liste des événements disponibles</h2>
+  <div class="filter-container">
+    <span>Filtres</span>
+    <div class="filters">
+      <mat-form-field appearance="fill">
+        <mat-label>Arrondissement</mat-label>
+        <select matNativeControl [(ngModel)]="selectedArrondissement" (change)="handleFilterChange()">
+          <option *ngFor="let arrondissement of arrondissements" [value]="arrondissement.id">
+            {{arrondissement.id}}
+          </option>
+        </select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Sport</mat-label>
+        <select matNativeControl [(ngModel)]="selectedSport" (change)="handleFilterChange()">
+          <option *ngFor="let sport of sports" [value]="sport.id">
+            {{sport.id}}
+          </option>
+        </select>
+      </mat-form-field>
+      <button (click)="resetFilters()">Reset filters</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Évenements par page</mat-label>
+        <select matNativeControl (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="events">
+      <app-event-card *ngFor="
+            let event of events | paginate : {
+                    itemsPerPage: size,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index
+          " [class.active]="i == currentIndex" [event]="event"></app-event-card>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
   </div>
 </div>

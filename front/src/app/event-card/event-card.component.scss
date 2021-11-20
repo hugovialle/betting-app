@@ -59,10 +59,12 @@
 
 .event_buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding-bottom: 0;
   .button {
+    text-decoration: none;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

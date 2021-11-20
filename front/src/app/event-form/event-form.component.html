@@ -1,53 +1,68 @@
-<form class="event-form" action="">
-  <div class="form-field">
-    <h3>Choisissez votre sport</h3>
-    <app-sport-radio-buttons (newSportValue)="changeSport($event)"></app-sport-radio-buttons>
-  </div>
-  <div class="form-field">
-    <h3>Donner un titre à votre événement</h3>
+<div class="container">
+  <form class="event-form" action="">
+    <div class="sides">
+      <div class="left">
+        <div class="form-field">
+          <h3>Choisissez votre sport</h3>
+          <app-sport-radio-buttons (newSportValue)="changeSport($event)"></app-sport-radio-buttons>
+        </div>
+        <div class="form-field">
+          <h3>Donner un titre à votre événement</h3>
+          <div class="inputBox">
+            <input name="title" type="text" (input)="updateTitle($event)" required />
+            <span>Ex. Match de foot à 11</span>
+          </div>
+        </div>
+        <div class="mat-input">
+          <h3>Choisissez la date</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="mat-input">
+          <h3>Choisissez l'heure</h3>
+          <div class="time">
+            <mat-form-field appearance="fill">
+              <mat-label>Heure</mat-label>
+              <select matNativeControl>
+                <option *ngFor="let hour of hours" [value]="hour.id">
+                  {{hour.id}}
+                </option>
+              </select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Minutes</mat-label>
+              <select matNativeControl>
+                <option *ngFor="let minute of minutes" [value]="minute.id">
+                  {{minute.id}}
+                </option>
+              </select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-field">
+          <h3>Choisissez le nombre de personnes</h3>
+          <div class="rangeinput">
+            <span class="value">{{rangeValue}}</span>
+            <input (input)="updateValue($event)" type="range" min="2" max="30" step="1" value="2">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="form-field">
+          <h3>Choisissez le lieu</h3>
+          <h4>Vous avez choisi: <span style="font-weight: normal;">{{this.locationName}}</span></h4>
+          <div class="map-container" id="new-event">
+            <app-map [event]="this.event" [locations]="this.locations" (selectedLocation)="handleSelectedLocation($event)"></app-map>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="inputBox">
-      <input name="title" type="text" (input)="updateTitle($event)" required />
-      <span>Ex. Match de foot à 11</span>
+      <button (click)="addEvent()">C'est parti!</button>
     </div>
-  </div>
-  <div class="form-field">
-    <h3>Choisissez la date</h3>
-
-  </div>
-  <div class="form-field">
-    <h3>Choisissez l'heure</h3>
-    <mat-form-field appearance="fill">
-      <mat-label>Heure</mat-label>
-      <select matNativeControl>
-        <option *ngFor="let hour of hours" [value]="hour.id">
-          {{hour.id}}
-        </option>
-      </select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Minutes</mat-label>
-      <select matNativeControl>
-        <option *ngFor="let minute of minutes" [value]="minute.id">
-          {{minute.id}}
-        </option>
-      </select>
-    </mat-form-field>
-  </div>
-  <div class="form-field">
-    <h3>Choisissez le lieu</h3>
-    <h4>Vous avez choisi: <span style="font-weight: normal;">{{this.locationName}}</span></h4>
-    <div class="map-container" id="new-event">
-      <app-map [event]="this.event" [locations]="this.locations" (selectedLocation)="handleSelectedLocation($event)"></app-map>
-    </div>
-  </div>
-  <div class="form-field">
-    <h3>Choisissez le nombre de personnes 19</h3>
-    <div class="rangeinput">
-      <span class="value">{{rangeValue}}</span>
-      <input (input)="updateValue($event)" type="range" min="2" max="30" step="1" value="2">
-    </div>
-  </div>
-  <div class="inputBox">
-    <button (click)="addEvent()">C'est parti!</button>
-  </div>
-</form>
+  </form>
+</div>
