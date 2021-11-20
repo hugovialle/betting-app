@@ -18,7 +18,6 @@ import { SportRadioButtonsComponent } from './sport-radio-buttons/sport-radio-bu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
@@ -50,15 +49,10 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-
-    NgxMatTimepickerModule,
-    NgxMatDatetimePickerModule,
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
