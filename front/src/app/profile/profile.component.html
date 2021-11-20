@@ -3,8 +3,10 @@
   <div class="container">
     <div class="events-container">
       <h3>Vos événements à venir</h3>
-      <div class="events">
-        <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
+      <div class="row">
+        <div class="events">
+          <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
+        </div>
         <a routerLink="/events/new" routerLinkActive="active-link" class="cat">
           <div class="new-event-button">
             <fa-icon [icon]="plusIcon" size="4x"></fa-icon>

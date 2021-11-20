@@ -16,13 +16,13 @@
                #pseudo="ngModel"
         />
         <span>Pseudo</span>
-        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: brown">
-          <div *ngIf="pseudo.errors.required">Pseudo is required</div>
+        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="pseudo.errors.required">Le pseudo est requis</div>
           <div *ngIf="pseudo.errors.minlength">
-            Pseudo must be at least 4 characters
+            Le pseudo doit faire au moins 4 caractères
           </div>
           <div *ngIf="pseudo.errors.maxlength">
-            Pseudo must be at most 15 characters
+            Le pseudo doit faire au plus 15 caractères
           </div>
         </div>
       </div>
@@ -35,13 +35,13 @@
                minlength="3"
                #password="ngModel"
         />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: brown">
-          <div *ngIf="password.errors.required">Password is required</div>
+        <span>Mot de passe</span>
+        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="password.errors.required">Le mot de passe est requis</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 3 characters
+            Le mot de passe doit faire au moins 3 caractères
           </div>
         </div>
-        <span>Mot de passe</span>
       </div>
       <button class="form-group">Se connecter</button>
       <div class="form-group" *ngIf="f.submitted">

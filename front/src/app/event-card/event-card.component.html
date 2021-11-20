@@ -1,4 +1,4 @@
-<div class="event-card" *ngIf="router == '/profile'">
+<div class="event-card" *ngIf="router == '/profile'" style="margin: 0 8px">
   <div class="content">
     <div class="top">
       <fa-icon [icon]="ball(this.event.sport)" size="2x" [styles]="{'color': 'black'}"></fa-icon>
@@ -12,7 +12,8 @@
       <span>{{event.title}}</span>
     </div>
     <div class="event_buttons">
-      <div class="button">Voir plus</div>
+      <a routerLink="/event/{{this.event._id}}" [state]="{ event: this.event }" routerLinkActive="active-link"
+        class="button">Voir plus</a>
     </div>
   </div>
 </div>

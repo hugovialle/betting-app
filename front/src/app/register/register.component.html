@@ -17,13 +17,13 @@
                #pseudo="ngModel"
         />
         <span>Pseudo</span>
-        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: brown">
-          <div *ngIf="pseudo.errors.required">Pseudo is required</div>
+        <div class="alert-danger" *ngIf="pseudo.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="pseudo.errors.required">Le pseudo est requis</div>
           <div *ngIf="pseudo.errors.minlength">
-            Pseudo must be at least 4 characters
+            Le pseudo doit faire au moins 4 caractères
           </div>
           <div *ngIf="pseudo.errors.maxlength">
-            Pseudo must be at most 15 characters
+            Le pseudo doit faire au plus 15 caractères
           </div>
         </div>
       </div>
@@ -38,13 +38,13 @@
                #firstName="ngModel"
         />
         <span>Prénom</span>
-        <div class="alert-danger" *ngIf="firstName.errors && f.submitted" style="color: brown">
-          <div *ngIf="firstName.errors.required">First name is required</div>
+        <div class="alert-danger" *ngIf="firstName.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="firstName.errors.required">Le prénom est requis</div>
           <div *ngIf="firstName.errors.minlength">
-            Pseudo must be at least 2 characters
+            Le prénom doit faire au moins 2 caractères
           </div>
           <div *ngIf="firstName.errors.maxlength">
-            Pseudo must be at most 15 characters
+            Le prénom doit faire au plus 15 caractères
           </div>
         </div>
       </div>
@@ -59,13 +59,13 @@
                #lastName="ngModel"
         />
         <span>Nom de famille</span>
-        <div class="alert-danger" *ngIf="lastName.errors && f.submitted" style="color: brown">
-          <div *ngIf="lastName.errors.required">Last name is required</div>
+        <div class="alert-danger" *ngIf="lastName.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="lastName.errors.required">Le nom de famille est requis</div>
           <div *ngIf="lastName.errors.minlength">
-            Pseudo must be at least 2 characters
+            Le nom de famille doit faire au moins 2 caractères
           </div>
           <div *ngIf="lastName.errors.maxlength">
-            Pseudo must be at most 15 characters
+            Le nom de famille doit faire au plus 15 caractères
           </div>
         </div>
       </div>
@@ -78,10 +78,10 @@
                #email="ngModel"
         />
         <span>Email</span>
-        <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
+        <div class="alert-danger" *ngIf="email.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="email.errors.required">Email est requis</div>
           <div *ngIf="email.errors.email">
-            Email must be a valid email address
+            Email doit etre une adresse valide
           </div>
         </div>
       </div>
@@ -94,10 +94,10 @@
                #password="ngModel"
         />
         <span>Mot de passe</span>
-        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: brown">
-          <div *ngIf="password.errors.required">Password is required</div>
+        <div class="alert-danger" *ngIf="password.errors && f.submitted" style="color: rgb(247, 55, 55)">
+          <div *ngIf="password.errors.required">Password est requis</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 3 characters
+            Password doit faire au moins 3 caractères
           </div>
         </div>
       </div>
