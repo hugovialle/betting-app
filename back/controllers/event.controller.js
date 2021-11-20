@@ -7,6 +7,48 @@
 const EventModel = require('../models/event.model.js');
 const ObjectID = require('mongoose').Types.ObjectId;
 
+const getPagination = (page, size) => {
+    const limit = size ? +size : 3;
+    const offset = page ? page * limit : 0;
+
+    return { limit, offset };
+};
+
+module.exports.getAllByPage = async (req, res) => {
+    const { page, size } = req.params;
+    const arrondissement = req.query.arrondissement;
+    const sport = req.query.sport;
+    const { limit, offset } = getPagination(page, size);
+    let query={};
+    if(arrondissement){
+        query.arrondissement={ $regex: new RegExp(arrondissement), $options: "i" }
+    }
+    if(sport){
+        query.sport={ $regex: new RegExp(sport), $options: "i" }
+    }
+
+    let options = {
+        populate: 'events',
+        sort: ({ date: 1 })
+    };
+
+    EventModel.paginate(query , { offset, limit })
+        .then((data) => {
+            res.send({
+                totalItems: data.total,
+                events: data.docs,
+                totalPages: data.pages,
+                currentPage: data.page - 1,
+            });
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials.",
+            });
+        });
+};
+
 module.exports.getEventByDate = async (req, res) => {
     try{
         const event = await EventModel.find({ date: req.params.date}).select().sort();

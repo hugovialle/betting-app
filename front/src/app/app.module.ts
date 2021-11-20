@@ -18,13 +18,14 @@ import { SportRadioButtonsComponent } from './sport-radio-buttons/sport-radio-bu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { EventsListComponent } from './events-list/events-list.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     ProfileComponent,
     EventFormComponent,
     MapComponent,
-    SportRadioButtonsComponent
+    SportRadioButtonsComponent,
+    EventsListComponent
   ],
   imports: [
     BrowserModule,
@@ -54,15 +56,15 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     MatInputModule,
     MatFormFieldModule,
 
-    NgxMatTimepickerModule,
-    NgxMatDatetimePickerModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    NgxPaginationModule
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    authInterceptorProviders
   ],
-  providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
@@ -14,6 +14,7 @@ export class EventsService {
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
   addEvent(eventCard: any):any{
+    console.log(eventCard);
     return this.http.post("http://localhost:3000/api/events/add",eventCard);
   }
 
@@ -32,6 +33,17 @@ export class EventsService {
 
   getEventsByUserId(userId:any):Observable<any> {
     return this.http.get("http://localhost:3000/api/events/user/"+userId);
+  }
+
+  getAllByPage(page:number, limit:number, selectedElements:any):Observable<any> {
+    let params = new HttpParams();
+    if(selectedElements.selectedArrondissement !== "" && selectedElements.selectedArrondissement !== undefined){
+      params = params.append('arrondissement', selectedElements.selectedArrondissement);
+    }
+    if(selectedElements.selectedSport !== "" && selectedElements.selectedSport !== undefined){
+      params = params.append('sport', selectedElements.selectedSport);
+    }
+    return this.http.get("http://localhost:3000/api/events/pagination/"+limit+"/"+page, {params: params});
   }
 
   saveEvent(eventCard:EventCard):any {

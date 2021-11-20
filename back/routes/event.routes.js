@@ -12,6 +12,7 @@ router.post("/add", requireAuth, eventController.addEvent);
 router.get("/:id", eventController.getEventById);
 router.put("/:id", eventController.updateEvent);
 
+router.get("/pagination/:size/:page", eventController.getAllByPage);
 router.get("/", eventController.getAllEvents);
 router.get("/date/:date", eventController.getEventByDate);
 router.get("/user/:id", requireAuth, eventController.getEventByUserId);
