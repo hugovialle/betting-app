@@ -3,7 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { AuthService } from './services/auth.service';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuardGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -14,10 +14,10 @@ export class AuthGuardService implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.connectedUser) { return true; }
+    //if (this.authService.connectedUser) { return true; }
 
     // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
+    //this.authService.redirectUrl = url;
 
     // Navigate to the login page with extras
     this.router.navigate(['/login']);

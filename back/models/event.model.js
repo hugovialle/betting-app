@@ -5,7 +5,7 @@
  */
 
 const mongoose = require('mongoose');
-const mongoosePaginate = require("mongoose-paginate-v2");
+const mongoosePaginate = require("mongoose-paginate");
 
 const eventSchema = new mongoose.Schema(
     {
@@ -20,6 +20,13 @@ const eventSchema = new mongoose.Schema(
 );
 
 eventSchema.plugin(mongoosePaginate);
+
+eventSchema.method("toJSON", function() {
+        const { __v, _id, ...object } = this.toObject();
+        object.id = _id;
+        return object;
+});
+
 
 const EventModel = mongoose.model("events", eventSchema);
 

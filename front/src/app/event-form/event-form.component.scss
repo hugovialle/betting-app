@@ -115,3 +115,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   outline: 2px solid $primary;
   outline-offset: -2px;
 }
+
+.map-container {
+  height: 500px;
+}

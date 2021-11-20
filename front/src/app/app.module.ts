@@ -24,6 +24,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { EventsListComponent } from './events-list/events-list.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     ProfileComponent,
     EventFormComponent,
     MapComponent,
-    SportRadioButtonsComponent
+    SportRadioButtonsComponent,
+    EventsListComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,9 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
