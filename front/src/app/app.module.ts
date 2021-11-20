@@ -59,7 +59,10 @@ import {AuthGuard} from "./auth.guard";
     MatNativeDateModule,
     NgxPaginationModule
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, AuthGuard],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    AuthGuard,
+    authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

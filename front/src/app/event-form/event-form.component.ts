@@ -4,6 +4,7 @@ import { LocationsService } from "../services/locations.service";
 import { EventsService } from "../services/events.service";
 import { Router } from "@angular/router";
 import {TokenStorageService} from "../services/token-storage.service";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-event-form',
@@ -11,6 +12,9 @@ import {TokenStorageService} from "../services/token-storage.service";
   styleUrls: ['./event-form.component.scss']
 })
 export class EventFormComponent implements OnInit {
+  date!: Date;
+  hoursForm!: number;
+  minutesForm!: number;
 
   rangeValue:string = "2"
   event: EventCard = new EventCard();
@@ -23,7 +27,7 @@ export class EventFormComponent implements OnInit {
 
   hours = [ {id: ""}, {id: "8"}, {id: "9"}, {id: "10"}, {id: "11"}, {id: "12"}, {id: "13"}, {id: "14"}, {id: "15"}, {id: "16"}, {id: "17"}, {id: "18"}, {id: "19"}, {id: "20"}, {id: "21"}, {id: "22"}];
 
-  minutes = [ {id: ""}, {id: "05"}, {id: "10"}, {id: "15"}, {id: "20"}, {id: "25"}, {id: "30"}, {id: "35"}, {id: "40"}, {id: "45"}, {id: "50"}, {id: "55"}];
+  minutes = [ {id: ""},{id:"00"}, {id: "05"}, {id: "10"}, {id: "15"}, {id: "20"}, {id: "25"}, {id: "30"}, {id: "35"}, {id: "40"}, {id: "45"}, {id: "50"}, {id: "55"}];
 
 
   @Output() newEventEvent = new EventEmitter<EventCard>();
@@ -49,6 +53,15 @@ export class EventFormComponent implements OnInit {
     this.getLocations()
   }
 
+  handleHourChange(event: any){
+    this.hoursForm = event.target.value;
+    console.log(this.hoursForm);
+  }
+
+  handleMinuteChange(event: any){
+    this.minutesForm = event.target.value;
+  }
+
   handleSelectedLocation(location: any){
     this.selectedLocation = location._id;
     this.locationName = ""+location.fields.equnom+",  "+location.fields.insnovoie+" "+location.fields.inslibellevoie+", "+location.fields.inscodepostal;
@@ -67,12 +80,18 @@ export class EventFormComponent implements OnInit {
     )
   }
 
+  handleDateChange(event:MatDatepickerInputEvent<Date>) {
+    if(event.value != null)
+      this.date = event.value;
+    console.log(this.date);
+  }
+
   addEvent(){
-    this.event.date = "null"; //TODO
+    this.date.setUTCHours(this.hoursForm, this.minutesForm);
+    this.event.date = this.date;
     this.event.title = this.title;
     this.event.sport = this.sport;
     this.event.peopleCount = +this.rangeValue;
-    console.log(this.event.arrondissement);
     this.event.creator_id = this.token.getUser()._id;
     this.event.participants_id = [];
     this.eventsService.addEvent(this.event).subscribe(

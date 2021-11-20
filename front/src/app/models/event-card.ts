@@ -1,6 +1,6 @@
 export class EventCard {
   _id?: number | string;
-  date!: string;
+  date!: Date;
   title!: string;
   sport!: string;
   peopleCount!: number;
