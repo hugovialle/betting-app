@@ -1,4 +1,4 @@
-![Logo]([https://drive.google.com/uc?export=view&id=1vsCrFKq5UVCPld5ey6kDT2e01is_Tuhf)
+![Logo](https://drive.google.com/uc?export=view&id=1vsCrFKq5UVCPld5ey6kDT2e01is_Tuhf)
 
 Project realized with [Théotime Lameyre](https://github.com/tlameyre) for the course "Back-end & Front-end Development" at the University Paris-Dauphine, Master MIAGE. 
 
@@ -22,3 +22,11 @@ and in the **front**
 ```bash
 nodemon
 ```
+
+## Tech Stack
+
+**Client:** Angular
+
+**Server:** Node, Express
+
+**Database:** MongoDB
