@@ -30,3 +30,11 @@ nodemon
 **Server:** Node, Express
 
 **Database:** MongoDB
+
+## Screenshots
+
+![Events page](https://drive.google.com/uc?export=view&id=1RGs1iSw3k8pFmCcPUczlNh86RICY7D30)
+ Page with all events
+
+![Event creation page](https://drive.google.com/uc?export=view&id=1urLubZ1E8CBBDX5GPHN1bAJyWebo9CzH)
+Event creation page (need to be logged in)
