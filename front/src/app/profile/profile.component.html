@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <h1>Bonjour, <b>{{ currentUser.pseudo }}</b></h1>
+  <h1>Hello, <b>{{ currentUser.pseudo }}</b></h1>
   <div class="container">
     <div class="events-container">
-      <h3>Vos événements à venir</h3>
+      <h3>Your upcoming events</h3>
       <div class="row">
         <div class="events">
           <app-event-card *ngFor="let event of events" [event]="event"></app-event-card>
@@ -10,7 +10,7 @@
         <a routerLink="/events/new" routerLinkActive="active-link" class="cat">
           <div class="new-event-button">
             <fa-icon [icon]="plusIcon" size="4x"></fa-icon>
-            <span>Créer un événement</span>
+            <span>Create an event</span>
           </div>
         </a>
       </div>

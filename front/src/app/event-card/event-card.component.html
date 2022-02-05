@@ -13,7 +13,7 @@
     </div>
     <div class="event_buttons">
       <a routerLink="/event/{{this.event._id}}" [state]="{ event: this.event }" routerLinkActive="active-link"
-        class="button">Voir plus</a>
+        class="button">See more</a>
     </div>
   </div>
 </div>
@@ -32,8 +32,8 @@
       <span>{{event.title}}</span>
     </div>
     <div class="event_buttons">
-      <a routerLink="/event/{{this.event._id}}" [state]="{ event: this.event }" routerLinkActive="active-link"  class="button">Voir plus</a>
-      <a class="button" (click)="handleParticipate()">Participer</a>
+      <a routerLink="/event/{{this.event._id}}" [state]="{ event: this.event }" routerLinkActive="active-link"  class="button">See more</a>
+      <a class="button" (click)="handleParticipate()">Join</a>
     </div>
   </div>
   <!--<div class="map">

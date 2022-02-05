@@ -3,18 +3,18 @@
     <div class="sides">
       <div class="left">
         <div class="form-field">
-          <h3>Choisissez votre sport</h3>
+          <h3>Choose your sport</h3>
           <app-sport-radio-buttons (newSportValue)="changeSport($event)"></app-sport-radio-buttons>
         </div>
         <div class="form-field">
-          <h3>Donner un titre à votre événement</h3>
+          <h3>Chose a title for your event</h3>
           <div class="inputBox">
             <input name="title" type="text" (input)="updateTitle($event)" required />
-            <span>Ex. Match de foot à 11</span>
+            <span>Ex. 11-a-side soccer match</span>
           </div>
         </div>
         <div class="mat-input">
-          <h3>Choisissez la date</h3>
+          <h3>Choose a date</h3>
           <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" (dateChange)="handleDateChange($event)">
@@ -23,10 +23,10 @@
           </mat-form-field>
         </div>
         <div class="mat-input">
-          <h3>Choisissez l'heure</h3>
+          <h3>Choose time</h3>
           <div class="time">
             <mat-form-field appearance="fill">
-              <mat-label>Heure</mat-label>
+              <mat-label>Hour</mat-label>
               <select matNativeControl (change)="handleHourChange($event)">
                 <option *ngFor="let hour of hours" [value]="hour.id">
                   {{hour.id}}
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="form-field">
-          <h3>Choisissez le nombre de personnes</h3>
+          <h3>Choose number of players</h3>
           <div class="rangeinput">
             <span class="value">{{rangeValue}}</span>
             <input (input)="updateValue($event)" type="range" min="2" max="30" step="1" value="2">
@@ -53,8 +53,8 @@
       </div>
       <div class="right">
         <div class="form-field">
-          <h3>Choisissez le lieu</h3>
-          <h4>Vous avez choisi: <span style="font-weight: normal;">{{this.locationName}}</span></h4>
+          <h3>Choose the place</h3>
+          <h4>You have chosen: <span style="font-weight: normal;">{{this.locationName}}</span></h4>
           <div class="map-container" id="new-event">
             <app-map [event]="this.event" [locations]="this.locations" (selectedLocation)="handleSelectedLocation($event)"></app-map>
           </div>
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="inputBox" style="justify-content: center;">
-      <button (click)="addEvent()">C'est parti!</button>
+      <button (click)="addEvent()">Let's go!</button>
     </div>
   </form>
 </div>

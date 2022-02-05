@@ -2,10 +2,10 @@
   <h2>{{event.title}}</h2>
   <div class="sides">
     <div class="left">
-      <h3>Événement de {{event.sport}}</h3>
-      <span>Aura lieu le <b>{{getDay()}}/{{getMonths()}}/{{getYear()}}</b></span>
-      <span>Organisé par <b>{{creatorFirstName}}</b></span>
-      <span>Participants (<b>{{event.peopleCount}}</b> places restantes) : </span>
+      <h3>{{event.sport}} event</h3>
+      <span>Will take place on <b>{{getDay()}}/{{getMonths()}}/{{getYear()}}</b></span>
+      <span>Hosted by <b>{{creatorFirstName}}</b></span>
+      <span>Participants (<b>{{event.peopleCount}}</b> remaining places) : </span>
       <div class="participants">
         <div class="participant" *ngFor="let participant of participants; let indexofelement=index;">
           <div class="image">
@@ -19,10 +19,10 @@
       </div>
     </div>
     <div class="right">
-      <span>Adresse de l'événement : <b>{{nbr}} {{street}}, {{arrondissement}}</b></span>
+      <span>Address of the event : <b>{{nbr}} {{street}}, {{arrondissement}}</b></span>
     </div>
   </div>
   <div class="inputBox" style="justify-content: center;">
-    <button (click)="handleParticipate()">Je participe</button>
+    <button (click)="handleParticipate()">Participe</button>
   </div>
 </div>

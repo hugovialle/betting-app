@@ -1,7 +1,7 @@
 <div class="container">
-  <h2>Liste des événements disponibles</h2>
+  <h2>List of available events</h2>
   <div class="filter-container">
-    <span>Filtres</span>
+    <span>Filters</span>
     <div class="filters">
       <mat-form-field appearance="fill">
         <mat-label>Arrondissement</mat-label>
@@ -21,7 +21,7 @@
       </mat-form-field>
       <button (click)="resetFilters()">Reset filters</button>
       <mat-form-field appearance="fill">
-        <mat-label>Évenements par page</mat-label>
+        <mat-label>Events per page</mat-label>
         <select matNativeControl (change)="handlePageSizeChange($event)">
           <option *ngFor="let size of pageSizes" [ngValue]="size">
             {{ size }}
